@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import "./singleShow.css"
 
+
 const url = "http://api.tvmaze.com/shows"
 
 
 
 
-function SingleShow({ singleMovie }) {
+function SingleShow({ singleMovie, setSingleMovie }) {
     const [seasons, setSeasons] = useState([])
     const [cast, setCast] = useState([])
 
@@ -32,14 +33,15 @@ function SingleShow({ singleMovie }) {
 
 
 
-    let replaced = singleMovie.summary.replace(/<\/?p[^>]*>/g, "");
-    replaced = replaced.replace(/<\/?b[^>]*>/g, "")
+    // let replaced = singleMovie.summary.replace(/<\/?p[^>]*>/g, "");
+    // replaced = replaced.replace(/<\/?b[^>]*>/g, "")
 
     return (
         <div className="singleShow">
             <h1>{singleMovie.name}</h1>
             <img src={singleMovie.image.original} alt="" />
-            <p>{replaced}</p>
+            {/* <p>{replaced}</p> */}
+
 
             <div dangerouslySetInnerHTML={{ __html: `${singleMovie.summary}` }} />
             <ul>{`Seasons(${seasons.length})`}
@@ -56,6 +58,8 @@ function SingleShow({ singleMovie }) {
             </ul>
 
             <p></p>
+
+            <button className='homeButton' onClick={() => setSingleMovie(null)}>Home</button>
 
         </div >
     )

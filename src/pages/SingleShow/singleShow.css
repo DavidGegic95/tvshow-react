@@ -1,0 +1,13 @@
+.homeButton {
+    position: fixed;
+    top: 6px;
+    left: 100px;
+    height: 40px;
+    width: 60px;
+    background-color: aquamarine;
+    opacity: 0.7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}

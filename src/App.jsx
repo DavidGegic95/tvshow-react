@@ -1,47 +1,50 @@
+import { ApplicationProvider } from "./context.js";
 import MainPage from './pages/MainPage/MainPage';
 import SingleShow from './pages/SingleShow/SingleShow';
 import './App.css';
 import { useEffect, useState } from 'react';
+import Header from "./Header/Header.jsx";
 const url = "http://api.tvmaze.com/shows"
-// const urlSeasons = "https://api.tvmaze.com/shows/1/seasons"
+
+
 
 function App() {
 
-
   const [singleMovie, setSingleMovie] = useState(null)
   const [allShows, setAllShows] = useState([])
+  const [isFetched, setIsFetched] = useState(false)
+
+
 
 
   function fetchMovies() {
     fetch(url)
       .then(data => data.json())
       .then(data => setAllShows(data))
-  }
 
-  console.log(crypto.randomUUID());
+
+  }
 
 
 
   useEffect(() => {
+    // setTimeout(fetchMovies, 1000)
     fetchMovies()
+
   }, [])
-
-
-
 
 
   return (
     <div className="App">
-      <header className="App-header">BitShow
-      </header>
-      {!singleMovie ?
-        <MainPage singleMovie={singleMovie} allShows={allShows} setSingleMovie={setSingleMovie} ></MainPage>
-        :
-        <SingleShow singleMovie={singleMovie} />
+      <Header isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
+      <ApplicationProvider value={{ allShows, setSingleMovie }}>
 
-
-      }
-
+        {!singleMovie ?
+          <MainPage singleMovie={singleMovie}   ></MainPage>
+          :
+          <SingleShow setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
+        }
+      </ApplicationProvider>
 
       <footer className='App-footer'>copyright2023</footer>
     </div>

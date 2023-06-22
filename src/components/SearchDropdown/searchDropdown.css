@@ -1,0 +1,21 @@
+.searchDropdown {
+    width: 146px;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+    top: 4vh;
+    right: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button {
+    width: 145px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    border: 1px solid grey;
+}
