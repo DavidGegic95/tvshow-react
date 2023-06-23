@@ -41,23 +41,35 @@ function Header({ setSingleMovie, isFetched, setIsFetched }) {
 
     }
 
+    const makeDropdown = () => {
+        if (isFetched) return <SearchDropwdown setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
+    }
 
 
 
     return (
         <header>
 
-            <p>BitShow</p>
+            {/* <p>DVDShow</p> */}
+            <button className='homeButton' onClick={() => setSingleMovie(null)} >DVDShow</button>
+            <div className='searchSection'>
+                <input onChange={e => onChange1(e.target.value)} value={inputValue} type="text" placeholder='Search...' />
+                <button className='searchIcon'>&#128269;</button>
 
-            <input onChange={e => onChange1(e.target.value)} value={inputValue} type="text" placeholder='Search...' />
 
-            {isFetched ?
-                <SearchDropwdown setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
-                :
-                console.log(isFetched)
+            </div>
+
+
+            
+            {isFetched &&
+                <SearchDropwdown setInputValue={setInputValue} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
+                // :
+                // console.log(isFetched)
 
 
             }
+
+            {/* {makeDropdown()} */}
 
 
 

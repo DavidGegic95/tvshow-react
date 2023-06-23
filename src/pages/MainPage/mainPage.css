@@ -6,12 +6,26 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: black;
+    padding-bottom: 40px;
 }
 
 .movieCard {
     margin: 20px;
+    margin-bottom: 0;
+    background-color: #242424;
+    height: 360px;
+    border: none;
+    border-radius: 6px;
+
 
 }
+
+img {
+    border-radius: 6px;
+}
+
+
 
 .movieCard:hover {
     cursor: pointer;
@@ -19,4 +33,21 @@
     opacity: 0.7;
     transition: 0.4s;
 
+}
+
+.ratings {
+    color: white;
+    padding-left: 10px;
+    margin-top: 6px;
+
+}
+
+.name {
+    color: white;
+    padding-left: 10px;
+    margin-top: 6px;
+}
+
+span {
+    font-size: 12px;
 }

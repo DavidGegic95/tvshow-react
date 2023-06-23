@@ -1,13 +1,55 @@
 header {
     height: 5vh;
     width: 100%;
-    background-color: black;
+    background-color: #242424;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
+input {
+    width: 500px;
+    height: 30px;
+    border: none;
+    padding-left: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+
+}
+
+input:focus {
+    outline: none;
+}
+
 .searchDisplayNone {
     display: none;
+}
+
+.searchIcon {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: white;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+}
+
+.searchSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeButton {
+    color: white;
+    width: 80px;
+    height: 40px;
+    background-color: #242424;
+    border: 1px solid white;
+    border-radius: 6px;
+    cursor: pointer;
 }

@@ -17,7 +17,9 @@ function MainPage() {
                     <div onClick={() => setSingleMovie(show)} key={uuidv4()} className="movieCard" >
 
                         < img src={show?.image.medium} alt="" />
-                        <p>{show?.name}</p>
+                        <p className="ratings"><span>&#x2B50;</span>{show?.rating.average}</p>
+                        <p className="name">{show?.name}</p>
+
 
 
                     </div>

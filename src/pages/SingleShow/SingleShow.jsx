@@ -39,27 +39,27 @@ function SingleShow({ singleMovie, setSingleMovie }) {
     return (
         <div className="singleShow">
             <h1>{singleMovie.name}</h1>
-            <img src={singleMovie.image.original} alt="" />
+            <img src={singleMovie?.image?.original} alt="" />
             {/* <p>{replaced}</p> */}
 
 
-            <div dangerouslySetInnerHTML={{ __html: `${singleMovie.summary}` }} />
+            <div dangerouslySetInnerHTML={{ __html: `${singleMovie?.summary}` }} />
             <ul>{`Seasons(${seasons.length})`}
                 {seasons.map((season) => {
-                    return (<li key={crypto.randomUUID()} >{`${season.premiereDate} - ${season.endDate}`}</li>)
+                    return (<li key={crypto.randomUUID()} >{`${season?.premiereDate} - ${season?.endDate}`}</li>)
 
                 })}
             </ul>
             <ul>{`Cast`}
                 {cast.map(({ person }) => {
-                    return <li key={crypto.randomUUID()}>{person.name}</li>
+                    return <li key={crypto.randomUUID()}>{person?.name}</li>
 
                 })}
             </ul>
 
             <p></p>
 
-            <button className='homeButton' onClick={() => setSingleMovie(null)}>Home</button>
+            {/* <button className='homeButton' onClick={() => setSingleMovie(null)}>Home</button> */}
 
         </div >
     )
