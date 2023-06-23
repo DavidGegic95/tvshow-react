@@ -2,9 +2,11 @@ import "./searchDropdown.css"
 
 import React from 'react'
 
-const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInputValue }) => {
+const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInputValue, searchOption, setSearchOption }) => {
     // console.log(searchResults[0]?.image);
     // console.log(searchResults[0].show.url);
+    console.log(searchOption);
+    console.log(searchResults);
 
 
 
@@ -19,6 +21,49 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
 
     }
 
+    console.log(searchResults);
+
+
+
+
+    // function searchDropdownBasedOnOption() {
+
+    //     if (searchOption === "all") {
+    //         console.log("allllllll");
+
+    //         searchResults.map((singleMovie, index) => {
+    //             // console.log(singleMovie?.show.image.medium);
+    //             function onClickButton(singleMovieShow) {
+    //                 setSingleMovie(singleMovieShow)
+    //                 setIsFetched(prev => !prev)
+    //                 setInputValue("")
+
+    //             }
+    //             return (
+
+    //                 <div className="searchResult" onClick={() => onClickButton(singleMovie?.show)} key={index}>
+    //                     <img className="searchReultsImage" src={singleMovie.show?.image?.medium} alt="Movie-image" />
+    //                     <div className="movieInfo">
+    //                         {singleMovie?.show.name}
+    //                         <br /><p className="ratingsSearch"><span>&#x2B50;</span>{singleMovie?.show?.rating?.average}</p>
+    //                         <span>{movieGenre(singleMovie?.show?.genres[0], singleMovie?.show?.genres[1])}</span>
+
+    //                     </div>
+
+    //                 </div>
+
+    //             )
+    //         })
+
+
+
+
+
+    //     }
+
+
+
+    // }
 
 
 
@@ -28,35 +73,78 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
     return (
         <div className='searchDropdown'>
 
-            {searchResults.map((singleMovie, index) => {
-                // console.log(singleMovie?.show.image.medium);
+            {/* {searchDropdownBasedOnOption()} */}
 
+            {searchOption === "All" && Array.isArray(searchResults) === true &&
 
-                function onClickButton(singleMovieShow) {
-                    setSingleMovie(singleMovieShow)
-                    setIsFetched(prev => !prev)
-                    setInputValue("")
+                searchResults.map((singleMovie, index) => {
+                    // console.log(singleMovie?.show.image.medium);
+                    function onClickButton(singleMovieShow) {
+                        setSingleMovie(singleMovieShow)
+                        setIsFetched(prev => !prev)
+                        setInputValue("")
 
-                }
-                return (
+                    }
+                    return (
 
-                    <div className="searchResult" onClick={() => onClickButton(singleMovie?.show)} key={index}>
-                        <img className="searchReultsImage" src={singleMovie.show.image?.medium} alt="Movie-image" />
-                        <div className="movieInfo">
-                            {singleMovie?.show.name}
-                            <br /><p className="ratingsSearch"><span>&#x2B50;</span>{singleMovie?.show?.rating?.average}</p>
-                            <span>{movieGenre(singleMovie?.show?.genres[0], singleMovie?.show?.genres[1])}</span>
+                        <div className="searchResult" onClick={() => onClickButton(singleMovie?.show)} key={index}>
+                            <img className="searchReultsImage" src={singleMovie.show?.image?.medium} alt="Movie-image" />
+                            <div className="movieInfo">
+                                {singleMovie?.show?.name}
+                                <br /><p className="ratingsSearch"><span>&#x2B50;</span>{singleMovie?.show?.rating?.average}</p>
+                                <span>{movieGenre(singleMovie?.show?.genres[0], singleMovie?.show?.genres[1])}</span>
+
+                            </div>
 
                         </div>
 
+                    )
+                })
+            }
+
+
+
+            {searchOption === "People" &&
+
+                searchResults.map((actor, index) => {
+                    console.log(actor);
+                    // console.log(singleMovie?.show.image.medium);
+                    function onClickButton() {
+                        // setSingleMovie(singleMovieShow)
+                        setIsFetched(prev => !prev)
+                        setInputValue("")
+
+                    }
+                    return (
+
+                        <div className="searchResult" onClick={() => onClickButton()} key={index}>
+                            {/* <img className="searchReultsImage" src={singleMovie.show?.image?.medium} alt="Movie-image" /> */}
+                            <div className="movieInfo">
+                                {actor.person?.name}
+                                {/* <br /><p className="ratingsSearch"><span>&#x2B50;</span>{singleMovie?.show?.rating?.average}</p> */}
+                                {/* <span>{movieGenre(singleMovie?.show?.genres[0], singleMovie?.show?.genres[1])}</span> */}
+
+                            </div>
+
+                        </div>
+
+                    )
+                })
+            }
+            {searchOption === "Single" &&
+                <div className="searchResult" >
+                    <img className="searchReultsImage" src={searchResults?.image?.medium} alt="Movie-image" />
+                    <div className="movieInfo">
+                        {searchResults?.name}
+                        <br /><p className="ratingsSearch"><span>&#x2B50;</span>{searchResults?.rating?.average}</p>
+                        {/* <span>{movieGenre(searchResults?.genres[0], searchResults?.genres[1])}</span> */}
+
                     </div>
 
-                    // <button onClick={() => onClickButton(singleMovie?.show)} key={index} >{singleMovie?.show.name}</button>
+                </div>
 
-
-                )
             }
-            )}
+
 
 
         </div>

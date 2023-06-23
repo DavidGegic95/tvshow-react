@@ -19,6 +19,7 @@ function MainPage() {
                         < img src={show?.image.medium} alt="" />
                         <p className="ratings"><span>&#x2B50;</span>{show?.rating.average}</p>
                         <p className="name">{show?.name}</p>
+                        {/* <button  >Add</button> */}
 
 
 

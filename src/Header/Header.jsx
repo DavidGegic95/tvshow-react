@@ -3,7 +3,8 @@ import { useDebouncedCallback } from "use-debounce";
 import "./header.css"
 import SearchDropwdown from '../components/SearchDropdown/SearchDropwdown';
 import SingleShow from '../pages/SingleShow/SingleShow';
-const searchUrl = "https://api.tvmaze.com/search/shows?q="
+import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
+
 
 // const debounce = (func, delay) => {
 //     let debounceTimer
@@ -16,10 +17,11 @@ const searchUrl = "https://api.tvmaze.com/search/shows?q="
 //     }
 // }
 function Header({ setSingleMovie, isFetched, setIsFetched }) {
-
-
+    const [searchUrl, setSearchUrl] = useState("https://api.tvmaze.com/search/shows?q=")
     const [inputValue, setInputValue] = useState("")
     const [searchResults, setSearchResults] = useState([])
+    const [optionsDropdown, setOptionsDropdown] = useState(false)
+    const [searchOption, setSearchOption] = useState("All")
 
     const debounced = useDebouncedCallback(() => {
         searchFetch()
@@ -31,7 +33,7 @@ function Header({ setSingleMovie, isFetched, setIsFetched }) {
 
         fetch(`${searchUrl}${inputValue}`)
             .then(data => data.json())
-            .then(data => console.log(data) || setSearchResults([...data]))
+            .then(data => setSearchResults(data))
 
     }
 
@@ -39,10 +41,39 @@ function Header({ setSingleMovie, isFetched, setIsFetched }) {
         setInputValue(value)
         debounced()
 
+
     }
 
     const makeDropdown = () => {
-        if (isFetched) return <SearchDropwdown setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
+        if (isFetched) return <SearchDropwdown setSearchOption={setSearchOption} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
+    }
+
+    // const searchOptionsDropdown = () => {
+
+    //     console.log(optionsDropdown);
+
+    // }
+
+    const createOptinsDropdown = () => {
+
+        if (optionsDropdown === true) {
+            return <OptionsDropdown searchOption={searchOption} setSearchOption={setSearchOption} setOptionsDropdown={setOptionsDropdown} setSearchUrl={setSearchUrl} />
+        }
+    }
+
+
+    const onClick = () => {
+        setIsFetched(false)
+        setOptionsDropdown((prev) => !prev)
+        setInputValue("")
+
+    }
+
+    const homeButtonOnClick = () => {
+        // console.log(optionsDropdown);
+        setOptionsDropdown(false)
+        setIsFetched(false)
+        setSingleMovie(null)
     }
 
 
@@ -51,18 +82,20 @@ function Header({ setSingleMovie, isFetched, setIsFetched }) {
         <header>
 
             {/* <p>DVDShow</p> */}
-            <button className='homeButton' onClick={() => setSingleMovie(null)} >DVDShow</button>
+            <button className='homeButton' onClick={() => homeButtonOnClick()} >DVDShow</button>
             <div className='searchSection'>
-                <input onChange={e => onChange1(e.target.value)} value={inputValue} type="text" placeholder='Search...' />
+                {createOptinsDropdown()}
+                <button onClick={() => onClick()} className='filterSearch'>{searchOption}</button>
+                <input onClick={() => setOptionsDropdown(false)} onChange={e => onChange1(e.target.value)} value={inputValue} type="text" placeholder='Search...' />
                 <button className='searchIcon'>&#128269;</button>
 
 
             </div>
 
 
-            
+
             {isFetched &&
-                <SearchDropwdown setInputValue={setInputValue} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
+                <SearchDropwdown setSearchOption={setSearchOption} searchOption={searchOption} setInputValue={setInputValue} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
                 // :
                 // console.log(isFetched)
 

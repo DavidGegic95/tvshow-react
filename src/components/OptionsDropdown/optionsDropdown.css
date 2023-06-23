@@ -1,0 +1,32 @@
+.optionsDropdown {
+    position: absolute;
+    top: 46px;
+    right: 692px;
+    background-color: #242424;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+}
+
+.search {
+    height: 40px;
+    width: 300px;
+    padding-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.search:hover {
+    /* opacity: 0.8; */
+    background-color: #444444;
+    transition: 0.3s;
+}
