@@ -15,7 +15,7 @@
     margin: 20px;
     margin-bottom: 0;
     background-color: #242424;
-    height: 360px;
+    height: 425px;
     border: none;
     border-radius: 6px;
 
@@ -28,13 +28,22 @@ img {
 
 
 
-.movieCard:hover {
+.movieCardpct:hover {
+    /* transform: scale(1.05); */
+    opacity: 0.7;
+    transition: 0.4s;
     cursor: pointer;
-    transform: scale(1.05);
+}
+
+
+
+/* .movieCard:hover {
+    cursor: pointer;
+    transform: scale(1.05); 
     opacity: 0.7;
     transition: 0.4s;
 
-}
+}  */
 
 .ratings {
     color: white;
@@ -43,12 +52,58 @@ img {
 
 }
 
+.ratings>span {
+    margin-right: 6px;
+    position: relative;
+    bottom: 2px;
+}
+
 .name {
     color: white;
     padding-left: 10px;
     margin-top: 6px;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+    width: 200px;
+}
+
+.longName {
+    margin-bottom: 0px;
 }
 
 span {
     font-size: 12px;
+}
+
+.addWatchlistButton {
+    width: 210px;
+    border: none;
+    height: 40px;
+    margin-top: 10px;
+    /* color: rgb(66, 103, 178); */
+    color: #5799ef;
+    font-weight: 700;
+    font-size: 14px;
+    padding-bottom: 4px;
+    background-color: rgb(30, 30, 30);
+
+    /* background-color: #424242; */
+}
+
+.plusWatchlist {
+    font-weight: 300;
+    font-size: 28px;
+    position: relative;
+    top: 4px;
+    margin-right: 6px;
+
+}
+
+
+.addWatchlistButton:hover {
+    background-color: #303030;
+    opacity: 0.7;
+    transition: 0.4s;
+    cursor: pointer;
+
 }

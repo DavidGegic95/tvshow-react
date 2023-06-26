@@ -26,56 +26,12 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
 
 
 
-    // function searchDropdownBasedOnOption() {
-
-    //     if (searchOption === "all") {
-    //         console.log("allllllll");
-
-    //         searchResults.map((singleMovie, index) => {
-    //             // console.log(singleMovie?.show.image.medium);
-    //             function onClickButton(singleMovieShow) {
-    //                 setSingleMovie(singleMovieShow)
-    //                 setIsFetched(prev => !prev)
-    //                 setInputValue("")
-
-    //             }
-    //             return (
-
-    //                 <div className="searchResult" onClick={() => onClickButton(singleMovie?.show)} key={index}>
-    //                     <img className="searchReultsImage" src={singleMovie.show?.image?.medium} alt="Movie-image" />
-    //                     <div className="movieInfo">
-    //                         {singleMovie?.show.name}
-    //                         <br /><p className="ratingsSearch"><span>&#x2B50;</span>{singleMovie?.show?.rating?.average}</p>
-    //                         <span>{movieGenre(singleMovie?.show?.genres[0], singleMovie?.show?.genres[1])}</span>
-
-    //                     </div>
-
-    //                 </div>
-
-    //             )
-    //         })
-
-
-
-
-
-    //     }
-
-
-
-    // }
-
-
-
-
-
-
     return (
         <div className='searchDropdown'>
 
             {/* {searchDropdownBasedOnOption()} */}
 
-            {searchOption === "All" && Array.isArray(searchResults) === true &&
+            {searchOption === "All" && (searchResults.length > 0) === true &&
 
                 searchResults.map((singleMovie, index) => {
                     // console.log(singleMovie?.show.image.medium);
@@ -88,7 +44,7 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
                     return (
 
                         <div className="searchResult" onClick={() => onClickButton(singleMovie?.show)} key={index}>
-                            <img className="searchReultsImage" src={singleMovie.show?.image?.medium} alt="Movie-image" />
+                            <img className="searchReultsImage" src={singleMovie.show?.image?.medium} alt="movie" />
                             <div className="movieInfo">
                                 {singleMovie?.show?.name}
                                 <br /><p className="ratingsSearch"><span>&#x2B50;</span>{singleMovie?.show?.rating?.average}</p>
@@ -104,7 +60,7 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
 
 
 
-            {searchOption === "People" &&
+            {searchOption === "People" && (searchResults.length > 0) === true &&
 
                 searchResults.map((actor, index) => {
                     console.log(actor);
@@ -114,26 +70,28 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
                         setIsFetched(prev => !prev)
                         setInputValue("")
 
+
                     }
                     return (
+                        <a className="peopleResults" rel="noreferrer" target="_blank" href={actor?.person?.url}>
+                            <div className="searchResult" onClick={() => onClickButton()} key={index}>
+                                <img className="searchReultsImage" src={actor?.person?.image?.medium} alt="actor-actress" />
+                                <div className="movieInfo">
+                                    <div>{actor.person?.name}</div>
+                                    {/* <a className="actorInfo" href={actor?.person?.url}>More info</a> */}
 
-                        <div className="searchResult" onClick={() => onClickButton()} key={index}>
-                            {/* <img className="searchReultsImage" src={singleMovie.show?.image?.medium} alt="Movie-image" /> */}
-                            <div className="movieInfo">
-                                {actor.person?.name}
-                                {/* <br /><p className="ratingsSearch"><span>&#x2B50;</span>{singleMovie?.show?.rating?.average}</p> */}
-                                {/* <span>{movieGenre(singleMovie?.show?.genres[0], singleMovie?.show?.genres[1])}</span> */}
+
+                                </div>
 
                             </div>
-
-                        </div>
+                        </a>
 
                     )
                 })
             }
             {searchOption === "Single" &&
                 <div className="searchResult" >
-                    <img className="searchReultsImage" src={searchResults?.image?.medium} alt="Movie-image" />
+                    <img className="searchReultsImage" src={searchResults?.image?.medium} alt="movie" />
                     <div className="movieInfo">
                         {searchResults?.name}
                         <br /><p className="ratingsSearch"><span>&#x2B50;</span>{searchResults?.rating?.average}</p>

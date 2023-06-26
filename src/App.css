@@ -29,3 +29,29 @@ footer {
   background-color: #242424;
 
 }
+
+
+
+.scrollUpButton {
+  position: fixed;
+  top: 30px;
+  right: auto;
+  left: auto;
+  z-index: 50;
+  cursor: pointer;
+  font-size: 14px;
+  width: 125px;
+  height: 28px;
+  border: none;
+  border-radius: 20px;
+}
+
+/* fixed bottom-5 right-7 z-50 cursor-pointer p-4 */
+
+.scrollUpImg {
+  height: 12px;
+  width: 12px;
+  margin-right: 8px;
+  position: relative;
+  top: 1px;
+}

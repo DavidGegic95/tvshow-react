@@ -8,11 +8,36 @@ const url = "http://api.tvmaze.com/shows"
 
 
 
+
 function App() {
 
   const [singleMovie, setSingleMovie] = useState(null)
   const [allShows, setAllShows] = useState([])
   const [isFetched, setIsFetched] = useState(false)
+
+
+
+
+  //////Back to top button
+  const [showButton, setShowButton] = useState(false)
+  useEffect(() => {
+    // Button is displayed after scrolling for 300 pixels
+    const handleScrollButtonVisiblity = () => {
+      window.pageYOffset > 300 ? setShowButton(true) : setShowButton(false);
+    };
+    window.addEventListener('scroll', handleScrollButtonVisiblity);
+    return () => {
+      window.removeEventListener('scroll', handleScrollButtonVisiblity);
+    };
+  }, []);
+
+  const handleScrollToTop =
+    () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+  ////
+
 
 
 
@@ -28,7 +53,6 @@ function App() {
 
 
   useEffect(() => {
-    // setTimeout(fetchMovies, 1000)
     fetchMovies()
 
   }, [])
@@ -37,17 +61,30 @@ function App() {
   return (
     <div className="App">
       <Header isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
-      <ApplicationProvider value={{ allShows, setSingleMovie }}>
 
-        {!singleMovie ?
-          <MainPage singleMovie={singleMovie}   ></MainPage>
-          :
-          <SingleShow setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
+      <ApplicationProvider value={{ allShows, setSingleMovie }}>
+        {showButton && (
+          <div className={`scrollToTop`}>
+            <button
+              className="scrollUpButton"
+
+              onClick={handleScrollToTop}>
+              <img className="scrollUpImg" src={"https://www.shareicon.net/data/256x256/2015/09/20/643612_arrows_512x512.png"} alt="scrollToTop" />
+              Back to top
+            </button>
+          </div>)
         }
-      </ApplicationProvider>
+
+        {
+          !singleMovie ?
+            <MainPage singleMovie={singleMovie}></MainPage>
+            :
+            <SingleShow setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
+        }
+      </ApplicationProvider >
 
       <footer className='App-footer'>copyright2023</footer>
-    </div>
+    </div >
   );
 }
 
