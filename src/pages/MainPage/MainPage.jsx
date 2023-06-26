@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function MainPage() {
     const { setSingleMovie, allShows } = useContext(applicationContext);
-    const sortedShows = allShows.sort((a, b) => b.rating.average - a.rating.average)
+    const sortedShows = [...allShows].sort((a, b) => b.rating.average - a.rating.average)
     const first50Shows = [...sortedShows].slice(0, 49);
 
 

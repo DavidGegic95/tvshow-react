@@ -71,3 +71,32 @@ input:focus {
     margin-right: 10px;
 
 }
+
+.bookmarkHeader {
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    position: relative;
+    top: 4px;
+    text-align: center;
+    padding-right: 2px;
+}
+
+
+.bookmarHeaderButton {
+    height: 30px;
+    width: 100px;
+    background-color: white;
+    color: #242424;
+    border: none;
+    border: none;
+    border-radius: 20px;
+    padding-bottom: 6px;
+    cursor: pointer;
+
+}
+
+.bookmarHeaderButton:hover {
+    opacity: 0.8;
+    transition: 0.2s;
+}

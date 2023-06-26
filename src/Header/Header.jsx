@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDebouncedCallback } from "use-debounce";
 import "./header.css"
 import SearchDropwdown from '../components/SearchDropdown/SearchDropwdown';
-import SingleShow from '../pages/SingleShow/SingleShow';
 import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
 
 
@@ -44,15 +43,6 @@ function Header({ setSingleMovie, isFetched, setIsFetched }) {
 
     }
 
-    const makeDropdown = () => {
-        if (isFetched) return <SearchDropwdown setSearchOption={setSearchOption} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
-    }
-
-    // const searchOptionsDropdown = () => {
-
-    //     console.log(optionsDropdown);
-
-    // }
 
     const createOptinsDropdown = () => {
 
@@ -91,7 +81,14 @@ function Header({ setSingleMovie, isFetched, setIsFetched }) {
 
 
             </div>
+            <div className='bookmarkDiv'>
 
+                <button className='bookmarHeaderButton'>
+
+                    <img className='bookmarkHeader' src={"https://cdn-icons-png.flaticon.com/128/6748/6748737.png"} alt="" />
+
+                    Watchlist</button>
+            </div>
 
 
             {isFetched &&
