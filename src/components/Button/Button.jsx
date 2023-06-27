@@ -1,5 +1,6 @@
 import "./button.css"
 import CheckIcon from '@mui/icons-material/Check';
+import BasicModal from "../Modal/Modal";
 
 import React, { useState, } from 'react'
 
@@ -13,7 +14,6 @@ const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks }) => {
             setButtonText("✓")
             setIsClicked(true)
             return (buttonText)
-
         }
     }
 
@@ -44,9 +44,11 @@ const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks }) => {
 
     }
     return (
-        <div>
+        <div className="buttonDiv">
+            <BasicModal show={show} />
             <button className="addWatchlistButton" onClick={() => onClick1()}><span className="plusWatchlist">{buttonText === "+" ? buttonText : <CheckIcon></CheckIcon>}</span>Watchlist</button>
             <button onClick={() => onClick1()} className={`bookmark ${isClicked === true && "bookmarkChecked"}`}>{buttonText === "+" ? buttonText : <CheckIcon></CheckIcon>}</button>
+
 
         </div>
 

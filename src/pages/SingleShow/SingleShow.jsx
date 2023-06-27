@@ -1,5 +1,7 @@
+// import { Accordion } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import "./singleShow.css"
+import Accordion from "../../components/Accordion/Accordion"
 
 
 const url = "http://api.tvmaze.com/shows"
@@ -15,13 +17,13 @@ function SingleShow({ singleMovie, setSingleMovie }) {
     function fetchSeasons() {
         fetch(`${url}/${singleMovie?.id}/seasons`)
             .then(data => data.json())
-            .then(data => setSeasons(data))
+            .then(data => console.log(data) || setSeasons(data))
     }
 
     function fetchCast() {
         fetch(`${url}/${singleMovie?.id}/cast`)
             .then(data => data.json())
-            .then(data => setCast(data))
+            .then(data => console.log(data) || setCast(data))
 
     }
 
@@ -37,29 +39,31 @@ function SingleShow({ singleMovie, setSingleMovie }) {
     // replaced = replaced.replace(/<\/?b[^>]*>/g, "")
 
     return (
-        <div className="singleShow">
-            <h1>{singleMovie.name}</h1>
-            <img src={singleMovie?.image?.original} alt="" />
-            {/* <p>{replaced}</p> */}
+        <div className="singleShowPage">
+            <h1>{singleMovie?.name}</h1>
+            <div className='singleShowContent'>
+                <img className='singlePageImage' src={singleMovie?.image?.original} alt="" />
+                {/* <p>{replaced}</p> */}
+                <div className='summaryAccordionDiv'>
+                    <div className='singleMovieSummary' dangerouslySetInnerHTML={{ __html: `${singleMovie?.summary}` }} />
+
+                    <Accordion cast={cast} seasons={seasons} ></Accordion>
+
+                </div>
+                {/* <ul>{`Seasons(${seasons.length})`}
+                    {seasons.map((season) => {
+                        return (<li key={crypto.randomUUID()} >{`${season?.premiereDate} - ${season?.endDate}`}</li>)
+
+                    })}
+                </ul> */}
 
 
-            <div dangerouslySetInnerHTML={{ __html: `${singleMovie?.summary}` }} />
-            <ul>{`Seasons(${seasons.length})`}
-                {seasons.map((season) => {
-                    return (<li key={crypto.randomUUID()} >{`${season?.premiereDate} - ${season?.endDate}`}</li>)
 
-                })}
-            </ul>
-            <ul>{`Cast`}
-                {cast.map(({ person }) => {
-                    return <li key={crypto.randomUUID()}>{person?.name}</li>
 
-                })}
-            </ul>
 
-            <p></p>
 
-            {/* <button className='homeButton' onClick={() => setSingleMovie(null)}>Home</button> */}
+            </div>
+
 
         </div >
     )

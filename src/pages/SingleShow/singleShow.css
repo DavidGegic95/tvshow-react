@@ -1,0 +1,28 @@
+.singleShowPage {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.singleShowContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.singlePageImage {
+    height: 600px;
+    width: 600px;
+    object-fit: contain;
+}
+
+.singleMovieSummary {
+    width: 600px;
+}
+
+.summaryAccordionDiv {
+    margin-left: 100px;
+}

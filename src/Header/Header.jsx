@@ -6,16 +6,6 @@ import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 
-// const debounce = (func, delay) => {
-//     let debounceTimer
-//     return function () {
-//         const context = this
-//         const args = arguments
-//         clearTimeout(debounceTimer)
-//         debounceTimer
-//             = setTimeout(() => func.apply(context, args), delay)
-//     }
-// }
 function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks }) {
     const [searchUrl, setSearchUrl] = useState("https://api.tvmaze.com/search/shows?q=")
     const [inputValue, setInputValue] = useState("")

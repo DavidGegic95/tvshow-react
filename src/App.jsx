@@ -57,6 +57,8 @@ function App() {
 
   useEffect(() => {
     fetchMovies()
+    setNumberOfBookmarks(Object.keys(localStorage).length)
+
 
   }, [])
 

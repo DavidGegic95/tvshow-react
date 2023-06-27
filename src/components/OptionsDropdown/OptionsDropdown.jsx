@@ -1,5 +1,6 @@
 import "./optionsDropdown.css"
 import SearchIcon from '@mui/icons-material/Search';
+import GroupIcon from '@mui/icons-material/Group';
 
 
 import React from 'react'
@@ -33,13 +34,13 @@ const OptionsDropdown = ({ setSearchOption, setSearchUrl, setOptionsDropdown, se
 
     return (
         <div className='optionsDropdown'>
-            <div onClick={() => allSearch()} className="search"><span className="spanSearch"><SearchIcon></SearchIcon></span>All</div>
+            <div onClick={() => allSearch()} className="search"><span className="spanSearch"><SearchIcon></SearchIcon></span>All movies</div>
             <div
                 onClick={() => singleSearch()}
-                className="search"><span className="spanSearch"><SearchIcon></SearchIcon></span>Single search</div>
+                className="search"><span className="spanSearch"><SearchIcon></SearchIcon></span>Single movie search</div>
             <div
                 onClick={() => peopleSearch()}
-                className="search"><span className="spanSearch"><SearchIcon></SearchIcon></span>People search</div>
+                className="search"><span className="spanSearch"><GroupIcon></GroupIcon></span>People search</div>
 
 
 
