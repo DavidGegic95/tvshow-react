@@ -1,10 +1,12 @@
 import "./button.css"
+import CheckIcon from '@mui/icons-material/Check';
 
 import React, { useState, } from 'react'
 
-const Button = ({ show }) => {
+const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks }) => {
     const [buttonText, setButtonText] = useState("+")
     const [isClicked, setIsClicked] = useState(false)
+
 
     function checkLocalStorage() {
         if (localStorage.getItem(show.id)) {
@@ -29,21 +31,22 @@ const Button = ({ show }) => {
         if (!isClicked) {
             setButtonText("✓")
             console.log(localStorage.getItem(show.id));
-
+            setNumberOfBookmarks(Object.keys(localStorage).length)
+            console.log(numberOFBookmarks);
         } else {
             setButtonText("+")
             localStorage.removeItem(`${show.id}`)
             console.log(localStorage.getItem(show.id));
-
-
+            setNumberOfBookmarks(Object.keys(localStorage).length)
+            console.log(numberOFBookmarks);
         }
 
 
     }
     return (
         <div>
-            <button className="addWatchlistButton" onClick={() => onClick1()}><span className="plusWatchlist">{buttonText}</span>Watchlist</button>
-            <button onClick={() => onClick1()} className={`bookmark ${isClicked === true && "bookmarkChecked"}`}>{buttonText}</button>
+            <button className="addWatchlistButton" onClick={() => onClick1()}><span className="plusWatchlist">{buttonText === "+" ? buttonText : <CheckIcon></CheckIcon>}</span>Watchlist</button>
+            <button onClick={() => onClick1()} className={`bookmark ${isClicked === true && "bookmarkChecked"}`}>{buttonText === "+" ? buttonText : <CheckIcon></CheckIcon>}</button>
 
         </div>
 

@@ -13,7 +13,7 @@
 
 .bookmark {
     position: relative;
-    bottom: 420px;
+    bottom: 418px;
     left: 0px;
     background-color: #242424;
     color: white;
@@ -37,5 +37,5 @@
 .bookmarkChecked {
     background-color: #f5c518;
     opacity: 1;
-    ;
+    border: none;
 }

@@ -14,6 +14,9 @@ function App() {
   const [singleMovie, setSingleMovie] = useState(null)
   const [allShows, setAllShows] = useState([])
   const [isFetched, setIsFetched] = useState(false)
+  const [numberOFBookmarks, setNumberOfBookmarks] = useState(0)
+
+
 
 
 
@@ -60,7 +63,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
+      <Header numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
 
       <ApplicationProvider value={{ allShows, setSingleMovie }}>
         {showButton && (
@@ -77,7 +80,7 @@ function App() {
 
         {
           !singleMovie ?
-            <MainPage singleMovie={singleMovie}></MainPage>
+            <MainPage numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
             :
             <SingleShow setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
         }

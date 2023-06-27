@@ -5,7 +5,8 @@ import Button from "../../components/Button/Button.jsx"
 import "./mainPage.css"
 import { v4 as uuidv4 } from 'uuid';
 
-function MainPage() {
+function MainPage({ setNumberOfBookmarks,numberOFBookmarks }) {
+
     const { setSingleMovie, allShows } = useContext(applicationContext);
     const sortedShows = [...allShows].sort((a, b) => b.rating.average - a.rating.average)
     const first50Shows = [...sortedShows].slice(0, 49);
@@ -26,7 +27,7 @@ function MainPage() {
                         <p className="ratings"><span>&#x2B50;</span>{show?.rating.average}</p>
                         <p className="name" >{show?.name}</p>
                         {/* <button key={uuidv4()} ></button> */}
-                        <Button show={show} />
+                        <Button numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} show={show} />
 
 
                     </div>

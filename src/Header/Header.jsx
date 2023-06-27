@@ -3,6 +3,7 @@ import { useDebouncedCallback } from "use-debounce";
 import "./header.css"
 import SearchDropwdown from '../components/SearchDropdown/SearchDropwdown';
 import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 
 // const debounce = (func, delay) => {
@@ -15,12 +16,13 @@ import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
 //             = setTimeout(() => func.apply(context, args), delay)
 //     }
 // }
-function Header({ setSingleMovie, isFetched, setIsFetched }) {
+function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks }) {
     const [searchUrl, setSearchUrl] = useState("https://api.tvmaze.com/search/shows?q=")
     const [inputValue, setInputValue] = useState("")
     const [searchResults, setSearchResults] = useState([])
     const [optionsDropdown, setOptionsDropdown] = useState(false)
     const [searchOption, setSearchOption] = useState("All")
+
 
     const debounced = useDebouncedCallback(() => {
         searchFetch()
@@ -83,23 +85,18 @@ function Header({ setSingleMovie, isFetched, setIsFetched }) {
             </div>
             <div className='bookmarkDiv'>
 
-                <button className='bookmarHeaderButton'>
+                <BookmarkIcon className='BookmarkIcon' color="white"></BookmarkIcon>
+                <span className='plusSpan'>+</span><span className='bookmarkSpan'>Watchlist</span>
 
-                    <img className='bookmarkHeader' src={"https://cdn-icons-png.flaticon.com/128/6748/6748737.png"} alt="" />
+                {numberOFBookmarks !== 0 &&
+                    <div className='numberOfBookmarks'>{numberOFBookmarks}</div>}
 
-                    Watchlist</button>
             </div>
 
 
             {isFetched &&
                 <SearchDropwdown setSearchOption={setSearchOption} searchOption={searchOption} setInputValue={setInputValue} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
-                // :
-                // console.log(isFetched)
-
-
             }
-
-            {/* {makeDropdown()} */}
 
 
 

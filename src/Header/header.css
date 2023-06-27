@@ -83,20 +83,68 @@ input:focus {
 }
 
 
-.bookmarHeaderButton {
+/* .bookmarHeaderButton {
     height: 30px;
     width: 100px;
-    background-color: white;
-    color: #242424;
+    background-color: #242424;
+    color: white;
     border: none;
     border: none;
     border-radius: 20px;
     padding-bottom: 6px;
     cursor: pointer;
 
-}
+} */
 
 .bookmarHeaderButton:hover {
     opacity: 0.8;
     transition: 0.2s;
+}
+
+/* .BookmarkIcon {
+    position: relative;
+    top: 4px;
+} */
+
+.bookmarkSpan {}
+
+.bookmarkDiv {
+    height: 30px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-left: 1px solid grey;
+    border-radius: 6px;
+
+}
+
+.bookmarkDiv:hover {
+    transition: 0.2s;
+    background-color: #363636;
+}
+
+.plusSpan {
+    color: black;
+    font-size: large;
+    position: relative;
+    right: 18px;
+    bottom: 2px;
+}
+
+.numberOfBookmarks {
+    font-size: 14px;
+    margin-left: 5px;
+    background-color: #f5c518;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 16px;
+    border-radius: 10px;
+    padding-bottom: 2px;
+
+
 }
