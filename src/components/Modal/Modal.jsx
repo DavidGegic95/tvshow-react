@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { applicationContext } from "../../context";
 import Box from '@mui/material/Box';
 // import Button from '@mui/material/Button';
 import StarIcon from '@mui/icons-material/Star';
@@ -23,6 +24,7 @@ const style = {
 };
 
 export default function BasicModal({ show }) {
+    const { setSingleMovie } = useContext(applicationContext);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -35,6 +37,9 @@ export default function BasicModal({ show }) {
         } else if (genre2) {
             return `${genre2}`
         }
+
+
+
 
     }
 
@@ -55,7 +60,7 @@ export default function BasicModal({ show }) {
                         <div className='imageTextDivModal'>
                             <img className='imgModal' src={show?.image.medium} alt="" />
                             <div className='tittleRatingsGenreModalDiv'>
-                                <p className='modalTitle'>{show?.name}<ArrowForwardIosIcon className='arrowForwardIosIcon' /> </p>
+                                <p className='modalTitle'>{show?.name}<ArrowForwardIosIcon onClick={() => setSingleMovie(show)} className='arrowForwardIosIcon' /> </p>
                                 <p className='ratingsModal'><StarIcon className='starIcon' />{show?.rating?.average}/10</p>
                                 <p>{movieGenre(show?.genres[0], show?.genres[1])}</p>
 

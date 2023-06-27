@@ -1,5 +1,9 @@
 .singleShowPage {
-
+    /* background-color: #242424; */
+    background-color: black;
+    color: white;
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,12 +19,14 @@
 
 .singlePageImage {
     height: 600px;
-    width: 600px;
+    width: 400px;
     object-fit: contain;
+    border-radius: 6px;
 }
 
 .singleMovieSummary {
-    width: 600px;
+    width: 400px;
+    margin-bottom: 10px;
 }
 
 .summaryAccordionDiv {

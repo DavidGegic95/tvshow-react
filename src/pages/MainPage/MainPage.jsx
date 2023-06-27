@@ -2,13 +2,9 @@ import React, { useContext } from "react";
 import { applicationContext } from "../../context";
 import Button from "../../components/Button/Button.jsx"
 import Tooltip from '@mui/material/Tooltip';
-
-
-
-
 import "./mainPage.css"
 import { v4 as uuidv4 } from 'uuid';
-// import BasicModal from "../../components/Modal/Modal";
+
 
 function MainPage({ setNumberOfBookmarks, numberOFBookmarks }) {
 
@@ -42,10 +38,14 @@ function MainPage({ setNumberOfBookmarks, numberOFBookmarks }) {
 
 
                     </div>
-                    ///////Razdvojiti bookmark buttons , i staviti na position absolute
+
+
+
+
 
                 )
             })}
+
         </div >
     )
 }

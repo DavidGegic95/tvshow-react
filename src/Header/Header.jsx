@@ -69,7 +69,7 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks }) 
                 {createOptinsDropdown()}
                 <button onClick={() => onClick()} className='filterSearch'>{searchOption}</button>
                 <input onClick={() => setOptionsDropdown(false)} onChange={e => onChange1(e.target.value)} value={inputValue} type="text" placeholder='Search...' />
-                <button className='searchIcon'>&#128269;</button>
+                {/* <button className='searchIcon'>&#128269;</button> */}
 
 
             </div>

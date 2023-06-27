@@ -6,9 +6,15 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function SimpleAccordion({ cast, seasons }) {
+    let max10Cast;
+    if (cast.length > 10) {
+        max10Cast = cast.slice(0, 10)
+
+    } else { max10Cast = cast }
+
     return (
         <div>
-            <Accordion>
+            <Accordion sx={{ backgroundColor: "#C2C2C2", color: "#242424" }} className='accordion'>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -16,16 +22,16 @@ export default function SimpleAccordion({ cast, seasons }) {
                 >
                     <Typography>Cast</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails >
                     <Typography>
-                        {cast.map(({ person }) => {
+                        {max10Cast.map(({ person }) => {
                             return (<p key={crypto.randomUUID()} >{person?.name}</p>)
 
                         })}
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion>
+            <Accordion sx={{ backgroundColor: "#C2C2C2", color: "#242424" }} >
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -42,15 +48,6 @@ export default function SimpleAccordion({ cast, seasons }) {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            {/* <Accordion disabled>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel3a-content"
-                    id="panel3a-header"
-                >
-                    <Typography>Disabled Accordion</Typography>
-                </AccordionSummary>
-            </Accordion> */}
         </div>
     );
 }
