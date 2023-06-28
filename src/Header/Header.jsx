@@ -6,7 +6,7 @@ import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 
-function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks }) {
+function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, isWatchlist, setIsWatchlist }) {
     const [searchUrl, setSearchUrl] = useState("https://api.tvmaze.com/search/shows?q=")
     const [inputValue, setInputValue] = useState("")
     const [searchResults, setSearchResults] = useState([])
@@ -56,6 +56,7 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks }) 
         setOptionsDropdown(false)
         setIsFetched(false)
         setSingleMovie(null)
+        setIsWatchlist(false)
     }
 
 
@@ -73,7 +74,7 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks }) 
 
 
             </div>
-            <div className='bookmarkDiv'>
+            <div aria-disabled={isWatchlist} onClick={() => setIsWatchlist(prev => !prev)} className={!isWatchlist ? 'bookmarkDiv' : " bookmarkDiv bookmarkDivDisabled"}>
 
                 <BookmarkIcon className='BookmarkIcon' color="white"></BookmarkIcon>
                 <span className='plusSpan'>+</span><span className='bookmarkSpan'>Watchlist</span>

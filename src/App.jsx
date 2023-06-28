@@ -4,6 +4,7 @@ import SingleShow from './pages/SingleShow/SingleShow';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Header from "./Header/Header.jsx";
+import Watchlist from "./pages/Watchlist/Watchlist.jsx";
 const url = "http://api.tvmaze.com/shows"
 
 
@@ -15,6 +16,7 @@ function App() {
   const [allShows, setAllShows] = useState([])
   const [isFetched, setIsFetched] = useState(false)
   const [numberOFBookmarks, setNumberOfBookmarks] = useState(0)
+  const [isWatchlist, setIsWatchlist] = useState(false)
 
 
 
@@ -65,7 +67,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
+      <Header isWatchlist={isWatchlist} setIsWatchlist={setIsWatchlist} numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
 
       <ApplicationProvider value={{ allShows, setSingleMovie }}>
         {showButton && (
@@ -80,7 +82,9 @@ function App() {
           </div>)
         }
 
-        {
+
+        {isWatchlist ? <Watchlist allShows={allShows} isWatchlist={isWatchlist} /> :
+
           !singleMovie ?
             <MainPage numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
             :
