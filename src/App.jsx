@@ -86,7 +86,7 @@ function App() {
         {isWatchlist ? <Watchlist allShows={allShows} isWatchlist={isWatchlist} /> :
 
           !singleMovie ?
-            <MainPage numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
+            <MainPage  numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
             :
             <SingleShow setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
         }

@@ -26,19 +26,19 @@ const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks }) => {
 
     const onClick1 = () => {
         setIsClicked(prev => !prev)
-        localStorage.setItem(`${show.id}`, `${show.name}`)
+        localStorage.setItem(`${show.id}`, JSON.stringify(show))
 
         if (!isClicked) {
             setButtonText("✓")
-            console.log(localStorage.getItem(show.id));
+            // console.log(localStorage.getItem(show.id));
             setNumberOfBookmarks(Object.keys(localStorage).length)
-            console.log(numberOFBookmarks);
+            // console.log(numberOFBookmarks);
         } else {
             setButtonText("+")
             localStorage.removeItem(`${show.id}`)
-            console.log(localStorage.getItem(show.id));
+            // console.log(localStorage.getItem(show.id));
             setNumberOfBookmarks(Object.keys(localStorage).length)
-            console.log(numberOFBookmarks);
+            // console.log(numberOFBookmarks);
         }
 
 

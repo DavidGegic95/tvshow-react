@@ -74,8 +74,8 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, is
 
 
             </div>
-            <div aria-disabled={isWatchlist} onClick={() => setIsWatchlist(prev => !prev)} className="bookmarkDiv bookmarkDivDisabled">
-                {/* ////////////////////////////////////////////////////////////////////////////{!isWatchlist ? 'bookmarkDiv' : " bookmarkDiv bookmarkDivDisabled"}      */}
+            <div aria-disabled={isWatchlist} onClick={() => setIsWatchlist(prev => !prev)} className={!isWatchlist ? 'bookmarkDiv' : " bookmarkDiv bookmarkDivDisabled"}>
+
                 <BookmarkIcon className='BookmarkIcon' color="white"></BookmarkIcon>
                 <span className='plusSpan'>+</span><span className='bookmarkSpan'>Watchlist</span>
 

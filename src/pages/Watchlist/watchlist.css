@@ -2,6 +2,84 @@
     min-height: 100vh;
     width: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+/* .watchListSingleMovieCard {
+    width: 100%;
+    height: 200px;
+    background-color: grey;
+    color: black;
+} */
+
+.viewFlex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.viewGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+
+.displayNone {
+    display: none;
+}
+
+.viewFlex,
+.viewGrid {
+    padding: 2vh 20%;
+}
+
+.watchlistMovieCard {
+    width: 800px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+
+
+.placeStart {
+    align-self: flex-end;
+    justify-self: flex-start;
+}
+
+.movieCartinGrid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.summary {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 500px;
+    height: 1.2em;
+    white-space: nowrap;
+    align-self: flex-start;
+}
+
+.movieCardContentFlex {
+    height: 295px;
+}
+
+.movieCardContentGrid {
+    height: auto;
+}
+
+
+.summaryDiv {
+    margin-top: 4vh;
 }

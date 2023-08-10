@@ -11,13 +11,7 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
 
 
     const movieGenre = (genre1, genre2) => {
-        if (genre1 && genre2) {
-            return `${genre1},${genre2}`
-        } else if (genre1) {
-            return `${genre1}`
-        } else if (genre2) {
-            return `${genre2}`
-        }
+        return genre1 && genre2 ? `${genre1},${genre2}` : genre1 ? `${genre1}` : ""
 
     }
 
@@ -95,7 +89,7 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
                     <div className="movieInfo">
                         {searchResults?.name}
                         <br /><p className="ratingsSearch"><span>&#x2B50;</span>{searchResults?.rating?.average}</p>
-                        {/* <span>{movieGenre(searchResults?.genres[0], searchResults?.genres[1])}</span> */}
+                        <span>{movieGenre(searchResults?.genres[0], searchResults?.genres[1])}</span>
 
                     </div>
 
