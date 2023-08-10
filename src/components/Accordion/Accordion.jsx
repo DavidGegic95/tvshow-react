@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import "./accordion.css"
 
 export default function SimpleAccordion({ cast, seasons }) {
     let max10Cast;
@@ -23,9 +24,9 @@ export default function SimpleAccordion({ cast, seasons }) {
                     <Typography>Cast</Typography>
                 </AccordionSummary>
                 <AccordionDetails >
-                    <Typography>
+                    <Typography >
                         {max10Cast.map(({ person }) => {
-                            return (<p key={crypto.randomUUID()} >{person?.name}</p>)
+                            return (<p className='accordionText' key={crypto.randomUUID()} >{person?.name}</p>)
 
                         })}
                     </Typography>
@@ -48,6 +49,6 @@ export default function SimpleAccordion({ cast, seasons }) {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-        </div>
+        </div >
     );
 }

@@ -2,43 +2,63 @@ import "./button.css"
 import CheckIcon from '@mui/icons-material/Check';
 import BasicModal from "../Modal/Modal";
 
-import React, { useState, } from 'react'
+import React, { useEffect, useState, } from 'react'
 
-const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks }) => {
+const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks, id }) => {
     const [buttonText, setButtonText] = useState("+")
     const [isClicked, setIsClicked] = useState(false)
 
 
     function checkLocalStorage() {
-        if (localStorage.getItem(show.id)) {
-            setButtonText("✓")
-            setIsClicked(true)
-            return (buttonText)
+        if (JSON.parse(localStorage?.getItem("movies"))) {
+            const allmovies = Object.values(JSON.parse(localStorage?.getItem("movies")))
+            allmovies.forEach((movie) => {
+                if (movie.id === id) {
+                    setButtonText("✓")
+                    setIsClicked(true)
+                    return (buttonText)
+
+                }
+            })
         }
     }
 
-    useState(() => {
+    useEffect(() => {
         checkLocalStorage()
 
+        // eslint-disable-next-line
     }, [])
 
 
 
     const onClick1 = () => {
         setIsClicked(prev => !prev)
-        localStorage.setItem(`${show.id}`, JSON.stringify(show))
+        let existing = localStorage.getItem("movies");
+        existing = existing ? JSON.parse(existing) : {};
+        let key = `${show.id}`
+        existing[key] = show;
+        console.log(existing);
+
+
+        localStorage.setItem('movies', JSON.stringify(existing));
+
 
         if (!isClicked) {
             setButtonText("✓")
-            // console.log(localStorage.getItem(show.id));
-            setNumberOfBookmarks(Object.keys(localStorage).length)
-            // console.log(numberOFBookmarks);
+            setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
         } else {
             setButtonText("+")
-            localStorage.removeItem(`${show.id}`)
-            // console.log(localStorage.getItem(show.id));
-            setNumberOfBookmarks(Object.keys(localStorage).length)
-            // console.log(numberOFBookmarks);
+            let existing = localStorage.getItem("movies");
+
+
+            existing = existing ? JSON.parse(existing) : {};
+
+            let key = `${show.id}`
+            delete existing[key]
+            console.log(existing);
+            localStorage.setItem('movies', JSON.stringify(existing));
+            setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
+  
         }
 
 

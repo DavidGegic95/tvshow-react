@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 90vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;

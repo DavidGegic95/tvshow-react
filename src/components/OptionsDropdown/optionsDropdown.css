@@ -1,7 +1,7 @@
 .optionsDropdown {
     position: absolute;
-    top: 46px;
-    right: 972px;
+    top: 8vh;
+    right: 50%;
     background-color: #242424;
     color: white;
     display: flex;

@@ -14,7 +14,7 @@ function MainPage({ setNumberOfBookmarks, numberOFBookmarks }) {
 
     return (
         <div className="mainPage" >
-            {first50Shows.map((show, index) => {
+            {first50Shows.map((show) => {
 
 
 
@@ -33,7 +33,7 @@ function MainPage({ setNumberOfBookmarks, numberOFBookmarks }) {
 
                         </Tooltip>
                         {/* <button key={uuidv4()} ></button> */}
-                        <Button numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} show={show} />
+                        <Button numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} show={show} id={show.id} />
 
 
 

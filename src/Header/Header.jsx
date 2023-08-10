@@ -24,7 +24,7 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, is
 
         fetch(`${searchUrl}${inputValue}`)
             .then(data => data.json())
-            .then(data => setSearchResults(data))
+            .then(data => console.log(data) || setSearchResults(data))
 
     }
 
@@ -59,6 +59,8 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, is
         setIsWatchlist(false)
     }
 
+    const numberOfBookmarks = Object.values(JSON.parse(localStorage?.getItem("movies"))).length
+
 
 
     return (
@@ -74,7 +76,7 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, is
 
 
             </div>
-            <div aria-disabled={isWatchlist} onClick={() => setIsWatchlist(prev => !prev)} className={!isWatchlist ? 'bookmarkDiv' : " bookmarkDiv bookmarkDivDisabled"}>
+            <div aria-disabled={isWatchlist} onClick={() => setIsWatchlist(prev => !prev)} className={!isWatchlist && numberOfBookmarks > 0 ? 'bookmarkDiv' : " bookmarkDiv bookmarkDivDisabled"}>
 
                 <BookmarkIcon className='BookmarkIcon' color="white"></BookmarkIcon>
                 <span className='plusSpan'>+</span><span className='bookmarkSpan'>Watchlist</span>

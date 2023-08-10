@@ -5,7 +5,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    /* margin-bottom: 10vh; */
 }
+
+/* .watchListTitle {
+    position: absolute;
+    top: 10vh;
+} */
 
 /* .watchListSingleMovieCard {
     width: 100%;
@@ -14,31 +20,53 @@
     color: black;
 } */
 
+.viewFlex,
+.viewGrid {
+    min-height: 90vh;
+    width: 60%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-radius: 6px;
+    padding-bottom: 2vh;
+}
+
 .viewFlex {
-    width: 100%;
+
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 12vh;
+    padding-top: 2vh;
+    padding-left: 2vh;
+    row-gap: 1vh;
+
+
+
 
 }
 
 .viewGrid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
     column-gap: 10px;
+    margin-top: 12vh;
+    padding-top: 2vh;
+    padding-left: 4vh;
+    column-gap: 4%;
+
+
 }
 
 .displayNone {
     display: none;
 }
 
-.viewFlex,
-.viewGrid {
-    padding: 2vh 20%;
-}
+
 
 .watchlistMovieCard {
     width: 800px;
@@ -50,8 +78,7 @@
 
 
 .placeStart {
-    align-self: flex-end;
-    justify-self: flex-start;
+    padding-left: 2%;
 }
 
 .movieCartinGrid {
@@ -73,13 +100,44 @@
 
 .movieCardContentFlex {
     height: 295px;
+    padding-left: 2%;
+    margin-bottom: 1vh;
+
 }
 
 .movieCardContentGrid {
-    height: auto;
+    /* margin-bottom: 2vh; */
+    padding-top: 1vh;
+    height: 8vh;
+    width: 100%;
+    align-items: center;
+
 }
 
 
 .summaryDiv {
-    margin-top: 4vh;
+    margin-top: 2vh;
+}
+
+.gridFlexViewButton {
+    width: 60%;
+    position: absolute;
+    top: calc(20vh - 31px);
+    right: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1%;
+}
+
+.viewButton {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.movieName {
+    /* line-height: 120%;
+    font-size: 120%; */
+    margin-bottom: 1vh;
 }

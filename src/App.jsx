@@ -59,7 +59,11 @@ function App() {
 
   useEffect(() => {
     fetchMovies()
-    setNumberOfBookmarks(Object.keys(localStorage).length)
+
+    if (localStorage.getItem("movies")) {
+      setNumberOfBookmarks(Object.values(JSON.parse(localStorage.getItem("movies")))?.length)
+
+    }
 
 
   }, [])
@@ -86,13 +90,13 @@ function App() {
         {isWatchlist ? <Watchlist allShows={allShows} isWatchlist={isWatchlist} /> :
 
           !singleMovie ?
-            <MainPage  numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
+            <MainPage numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
             :
             <SingleShow setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
         }
       </ApplicationProvider >
 
-      <footer className='App-footer'>copyright2023</footer>
+      <footer className='App-footer'>Developed by David Gegic</footer>
     </div >
   );
 }
