@@ -18,13 +18,30 @@ function App() {
   const [numberOFBookmarks, setNumberOfBookmarks] = useState(0)
   const [isWatchlist, setIsWatchlist] = useState(false)
   const [showSearchDropDown, setShowSearchDropDown] = useState(false)
+  const [randomShows, setRandomShows] = useState([])
+
+
+  const randomShowsFun = (data) => {
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    for (let i = 0; i < 15; i++) {
+      let random = getRandomInt(1, 240)
+      randomShows[i] = data[random]
+    }
+  }
 
 
 
 
 
 
-  //////Back to top button
+
+
+
+  // //////Back to top button
   const [showButton, setShowButton] = useState(false)
   useEffect(() => {
     // Button is displayed after scrolling for 300 pixels
@@ -51,7 +68,7 @@ function App() {
   function fetchMovies() {
     fetch(url)
       .then(data => data.json())
-      .then(data => setAllShows(data))
+      .then(data => setAllShows(data) || randomShowsFun(data))
 
 
   }
@@ -66,16 +83,18 @@ function App() {
 
     }
 
+    console.log(randomShows);
+
 
   }, [])
-  
+
 
 
   return (
     <div className="App">
       <Header setShowSearchDropDown={setShowSearchDropDown} showSearchDropDown={showSearchDropDown} isWatchlist={isWatchlist} setIsWatchlist={setIsWatchlist} numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
 
-      <ApplicationProvider value={{ allShows, setSingleMovie }}>
+      <ApplicationProvider value={{ allShows, setSingleMovie, randomShows }}>
         {showButton && (
           <div className={`scrollToTop`}>
             <button
