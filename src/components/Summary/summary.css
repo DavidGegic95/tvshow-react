@@ -1,0 +1,9 @@
+.summaryInfo {
+    width: 80px;
+    background-color: #C2C2C2;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 4px;
+}

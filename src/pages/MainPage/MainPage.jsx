@@ -6,14 +6,14 @@ import "./mainPage.css"
 import { v4 as uuidv4 } from 'uuid';
 
 
-function MainPage({ setNumberOfBookmarks, numberOFBookmarks }) {
+function MainPage({ setShowSearchDropDown, setNumberOfBookmarks, numberOFBookmarks }) {
 
     const { setSingleMovie, allShows } = useContext(applicationContext);
     const sortedShows = [...allShows].sort((a, b) => b.rating.average - a.rating.average)
     const first50Shows = [...sortedShows].slice(0, 48);
 
     return (
-        <div className="mainPage" >
+        <div onClick={() => setShowSearchDropDown(false)} className="mainPage" >
             {first50Shows.map((show) => {
 
 

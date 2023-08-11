@@ -6,7 +6,7 @@ import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 
-function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, isWatchlist, setIsWatchlist }) {
+function Header({ setShowSearchDropDown, showSearchDropDown, setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, isWatchlist, setIsWatchlist }) {
     const [searchUrl, setSearchUrl] = useState("https://api.tvmaze.com/search/shows?q=")
     const [inputValue, setInputValue] = useState("")
     const [searchResults, setSearchResults] = useState([])
@@ -21,6 +21,7 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, is
 
     function searchFetch() {
         setIsFetched(prev => { return (prev === true ? prev : !prev) })
+        setShowSearchDropDown(true)
 
         fetch(`${searchUrl}${inputValue}`)
             .then(data => data.json())
@@ -87,8 +88,9 @@ function Header({ setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, is
             </div>
 
 
-            {isFetched &&
-                <SearchDropwdown setSearchOption={setSearchOption} searchOption={searchOption} setInputValue={setInputValue} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
+            {isFetched
+                && showSearchDropDown
+                && <SearchDropwdown setSearchOption={setSearchOption} searchOption={searchOption} setInputValue={setInputValue} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} className="searchDisplayNone" searchResults={searchResults} />
             }
 
 

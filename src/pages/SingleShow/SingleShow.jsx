@@ -9,7 +9,7 @@ const url = "http://api.tvmaze.com/shows"
 
 
 
-function SingleShow({ singleMovie, setSingleMovie }) {
+function SingleShow({ singleMovie, setShowSearchDropDown }) {
     const [seasons, setSeasons] = useState([])
     const [cast, setCast] = useState([])
 
@@ -39,7 +39,7 @@ function SingleShow({ singleMovie, setSingleMovie }) {
     // replaced = replaced.replace(/<\/?b[^>]*>/g, "")
 
     return (
-        <div className="singleShowPage">
+        <div onClick={() => setShowSearchDropDown(false)} className="singleShowPage">
             <h1>{singleMovie?.name}</h1>
             <div className='singleShowContent'>
                 <img className='singlePageImage' src={singleMovie?.image?.original} alt="" />

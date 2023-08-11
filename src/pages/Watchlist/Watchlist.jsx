@@ -9,7 +9,7 @@ import StarIcon from '@mui/icons-material/Star';
 import React, { useState } from 'react'
 import Summary from "../../components/Summary/Summary";
 
-const Watchlist = ({ isWatchlist, allShows }) => {
+const Watchlist = ({ setShowSearchDropDown, isWatchlist, allShows }) => {
     const moviesWatchlist = localStorage.getItem("movies") ? [...Object.values(JSON.parse(localStorage.getItem("movies")))] : []
     const [isGrid, setIsGrid] = useState(false)
     const movieGenre = (genre1, genre2) => {
@@ -24,7 +24,7 @@ const Watchlist = ({ isWatchlist, allShows }) => {
 
 
     return (
-        <div className="watchlistPage">
+        <div onClick={() => setShowSearchDropDown(false)} className="watchlistPage">
             {/* <section className="watchListTitle">
                 <h2>Your Watchlist</h2>
 
@@ -34,8 +34,8 @@ const Watchlist = ({ isWatchlist, allShows }) => {
                 <span>{moviesWatchlist.length} titles</span>
                 <h2>Your Watchlist</h2>
                 <button className="viewButton" onClick={() => setIsGrid(prev => !prev)}>
-                    {!isGrid && <ViewListIcon />}
-                    {isGrid && <AppsIcon />}
+                    {!isGrid && <ViewListIcon sx={{ backgroundColor: "#C2C2C2" }} />}
+                    {isGrid && <AppsIcon sx={{ backgroundColor: "#C2C2C2", }} />}
                 </button>
 
             </div>

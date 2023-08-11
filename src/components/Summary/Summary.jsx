@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "./summary.css"
 
 
 const Summary = ({ tempMovie, isGrid }) => {
@@ -11,7 +12,7 @@ const Summary = ({ tempMovie, isGrid }) => {
 
             <p className={`${moreInfoWatchList ? 'summaryModal' : 'summaryModal cut-text'} ${displayNone()}`}>
                 {tempMovie?.summary?.replace(/<\/?b[^>]*>/g, "").replace(/<\/?i[^>]*>/g, "").replace(/<\/?p[^>]*>/g, "")}</p>
-            <button onClick={() => setMoreInfoWatchList(prev => !prev)} className={`'summaryButtonMoreInfo' ${displayNone()}`} >
+            <button onClick={() => setMoreInfoWatchList(prev => !prev)} className={`summaryInfo ${displayNone()}`} >
                 {moreInfoWatchList ? 'less info' : 'more info'}</button>
             {/* <p className={`summary ${displayNone()}`} dangerouslySetInnerHTML={{ __html: tempMovie?.summary }}></p> */}
         </div>

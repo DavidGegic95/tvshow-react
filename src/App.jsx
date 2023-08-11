@@ -17,6 +17,7 @@ function App() {
   const [isFetched, setIsFetched] = useState(false)
   const [numberOFBookmarks, setNumberOfBookmarks] = useState(0)
   const [isWatchlist, setIsWatchlist] = useState(false)
+  const [showSearchDropDown, setShowSearchDropDown] = useState(false)
 
 
 
@@ -67,11 +68,12 @@ function App() {
 
 
   }, [])
+  
 
 
   return (
     <div className="App">
-      <Header isWatchlist={isWatchlist} setIsWatchlist={setIsWatchlist} numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
+      <Header setShowSearchDropDown={setShowSearchDropDown} showSearchDropDown={showSearchDropDown} isWatchlist={isWatchlist} setIsWatchlist={setIsWatchlist} numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
 
       <ApplicationProvider value={{ allShows, setSingleMovie }}>
         {showButton && (
@@ -87,12 +89,12 @@ function App() {
         }
 
 
-        {isWatchlist ? <Watchlist allShows={allShows} isWatchlist={isWatchlist} /> :
+        {isWatchlist ? <Watchlist setShowSearchDropDown={setShowSearchDropDown} allShows={allShows} isWatchlist={isWatchlist} /> :
 
           !singleMovie ?
-            <MainPage numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
+            <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
             :
-            <SingleShow setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
+            <SingleShow setShowSearchDropDown={setShowSearchDropDown} setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
         }
       </ApplicationProvider >
 

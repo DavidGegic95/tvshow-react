@@ -32,7 +32,10 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
 
             {/* {searchDropdownBasedOnOption()} */}
 
-            {searchOption === "All" && (searchResults?.length > 0) === true &&
+            {searchOption === "All"
+                && searchResults !== null
+                && (searchResults && searchResults?.length > 0) === true
+                &&
 
                 searchResults?.map((singleMovie, index) => {
                     // console.log(singleMovie?.show.image.medium);
@@ -70,7 +73,10 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
 
 
 
-            {searchOption === "People" && (searchResults.length > 0) === true &&
+            {searchOption === "People"
+                && searchResults !== null
+                && (searchResults && searchResults.length > 0) === true
+                &&
 
                 searchResults.map((actor, index) => {
                     console.log(actor);

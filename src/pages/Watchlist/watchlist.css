@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #C2C2C2;
     /* margin-bottom: 10vh; */
 }
 
@@ -132,8 +133,9 @@
 
 .viewButton {
     border: none;
-    background-color: white;
+    background-color: #C2C2C2;
     cursor: pointer;
+    /* border: "1px solid #C2C2C2" */
 }
 
 .movieName {

@@ -25,6 +25,7 @@ const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks, id }) => {
 
     useEffect(() => {
         checkLocalStorage()
+        console.log("check");
 
         // eslint-disable-next-line
     }, [])
@@ -58,7 +59,7 @@ const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks, id }) => {
             console.log(existing);
             localStorage.setItem('movies', JSON.stringify(existing));
             setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
-  
+
         }
 
 
