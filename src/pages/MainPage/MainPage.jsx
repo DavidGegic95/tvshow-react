@@ -4,7 +4,6 @@ import Button from "../../components/Button/Button.jsx"
 import Tooltip from '@mui/material/Tooltip';
 import Carousel from "../../components/Carousel/Carousel"
 import StarIcon from '@mui/icons-material/Star';
-
 import "./mainPage.css"
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
 
@@ -24,7 +23,7 @@ function MainPage({ setShowSearchDropDown, setNumberOfBookmarks, numberOFBookmar
                     Save those you want to see.</h1>
                 <ImageCarousel setSingleMovie={setSingleMovie} first50Shows={first50Shows} />
             </div>
-            <h2>Top picks for today</h2>
+            <h2 className="topPicksTitle">Top picks for today</h2>
             <Carousel />
             <h3 className="top50tittle">Top 50 shows</h3>
 

@@ -10,7 +10,7 @@ function ImageCarousel({ first50Shows, setSingleMovie }) {
 
 
     return (
-        <Carousel animation="slide" duration="700" indicators={true} height="600px" sx={{ width: "400px" }}>
+        <Carousel animation="slide" duration="700" indicators={true} height="540px" sx={{ width: "360px" }}>
             {
                 fourShows.map((show, i) => <img onClick={() => setSingleMovie(show)} key={i} className='imageCarousel' src={show.image.original}></img>)
             }

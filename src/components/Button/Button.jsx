@@ -1,22 +1,19 @@
 import "./button.css"
 import CheckIcon from '@mui/icons-material/Check';
+import AddIcon from '@mui/icons-material/Add';
 import BasicModal from "../Modal/Modal";
 
 import React, { useEffect, useState, } from 'react'
 
 const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks, id }) => {
-    const [buttonText, setButtonText] = useState("+")
     const [isClicked, setIsClicked] = useState(false)
-
 
     function checkLocalStorage() {
         if (JSON.parse(localStorage?.getItem("movies"))) {
             const allmovies = Object.values(JSON.parse(localStorage?.getItem("movies")))
             allmovies.forEach((movie) => {
                 if (movie.id === id) {
-                    setButtonText("✓")
                     setIsClicked(true)
-                    return (buttonText)
 
                 }
             })
@@ -41,10 +38,8 @@ const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks, id }) => {
         console.log(existing);
         localStorage.setItem('movies', JSON.stringify(existing));
         if (!isClicked) {
-            setButtonText("✓")
             setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
         } else {
-            setButtonText("+")
             let existing = localStorage.getItem("movies");
             existing = existing ? JSON.parse(existing) : {};
             let key = `${show.id}`
@@ -58,8 +53,8 @@ const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks, id }) => {
     return (
         <div className="buttonDiv">
             <BasicModal show={show} />
-            <button className="addWatchlistButton" onClick={() => onClick1()}><span className="plusWatchlist">{buttonText === "+" ? buttonText : <CheckIcon></CheckIcon>}</span>Watchlist</button>
-            <button onClick={() => onClick1()} className={`bookmark ${isClicked === true && "bookmarkChecked"}`}>{buttonText === "+" ? buttonText : <CheckIcon></CheckIcon>}</button>
+            <button className="addWatchlistButton" onClick={() => onClick1()}><span className="plusWatchlist">{!isClicked ? <AddIcon /> : <CheckIcon></CheckIcon>}</span>Watchlist</button>
+            <button onClick={() => onClick1()} className={`bookmark ${isClicked === true && "bookmarkChecked"}`}>{!isClicked ? <AddIcon /> : <CheckIcon></CheckIcon>}</button>
 
 
         </div>

@@ -1,6 +1,6 @@
 .imageCarousel {
-    width: 400px;
-    height: 600px;
+    width: 360px;
+    height: 540px;
     object-fit: cover;
     box-sizing: border-box;
     cursor: pointer;

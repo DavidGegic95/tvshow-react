@@ -135,10 +135,11 @@ span {
 
 }
 
-h2 {
+.topPicksTitle {
     color: white;
     width: 100%;
     padding-left: 40px;
+    margin-top: 180px;
 
 }
 
@@ -153,7 +154,8 @@ h4 {
     color: white;
     width: 100%;
     padding-left: 40px;
-    font-size: 120%;
+    font-size: 150%;
+    margin-top: 90px;
 
 }
 
