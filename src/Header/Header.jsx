@@ -6,7 +6,7 @@ import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 
-function Header({ setShowSearchDropDown, showSearchDropDown, setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, isWatchlist, setIsWatchlist }) {
+function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDown, setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, isWatchlist, setIsWatchlist }) {
     const [searchUrl, setSearchUrl] = useState("https://api.tvmaze.com/search/shows?q=")
     const [inputValue, setInputValue] = useState("")
     const [searchResults, setSearchResults] = useState([])
@@ -58,6 +58,7 @@ function Header({ setShowSearchDropDown, showSearchDropDown, setSingleMovie, isF
         setIsFetched(false)
         setSingleMovie(null)
         setIsWatchlist(false)
+        setHomeButtonClicked(prev => !prev)
     }
 
     const numberOfBookmarks = Object.values(JSON.parse(localStorage?.getItem("movies"))).length

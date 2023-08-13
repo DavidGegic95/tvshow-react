@@ -39,29 +39,20 @@ const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks, id }) => {
         let key = `${show.id}`
         existing[key] = show;
         console.log(existing);
-
-
         localStorage.setItem('movies', JSON.stringify(existing));
-
-
         if (!isClicked) {
             setButtonText("✓")
             setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
         } else {
             setButtonText("+")
             let existing = localStorage.getItem("movies");
-
-
             existing = existing ? JSON.parse(existing) : {};
-
             let key = `${show.id}`
             delete existing[key]
             console.log(existing);
             localStorage.setItem('movies', JSON.stringify(existing));
             setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
-
         }
-
 
     }
     return (

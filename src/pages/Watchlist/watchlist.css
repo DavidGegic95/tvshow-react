@@ -143,3 +143,8 @@
     font-size: 120%; */
     margin-bottom: 1vh;
 }
+
+.watchListtitle {
+    color: black;
+    text-align: center;
+}

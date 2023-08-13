@@ -26,7 +26,7 @@ export default function SimpleAccordion({ cast, seasons }) {
                 <AccordionDetails >
                     <Typography >
                         {max10Cast.map(({ person }) => {
-                            return (<p className='accordionText' key={crypto.randomUUID()} >{person?.name}</p>)
+                            return (<p className='accordionText' key={person?.name} >{person?.name}</p>)
 
                         })}
                     </Typography>
@@ -43,7 +43,7 @@ export default function SimpleAccordion({ cast, seasons }) {
                 <AccordionDetails>
                     <Typography>
                         {seasons.map((season) => {
-                            return (<p key={crypto.randomUUID()} >{`${season?.premiereDate} - ${season?.endDate}`}</p>)
+                            return (<p key={seasons?.premiereDate} >{`${season?.premiereDate} - ${season?.endDate}`}</p>)
 
                         })}
                     </Typography>

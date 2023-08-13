@@ -1,10 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { applicationContext } from "../../context";
 import Button from "../../components/Button/Button.jsx"
 import Tooltip from '@mui/material/Tooltip';
 import Carousel from "../../components/Carousel/Carousel"
+import StarIcon from '@mui/icons-material/Star';
+
 import "./mainPage.css"
-import { v4 as uuidv4 } from 'uuid';
+import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
+
 
 
 
@@ -13,49 +16,32 @@ function MainPage({ setShowSearchDropDown, setNumberOfBookmarks, numberOFBookmar
     const { setSingleMovie, allShows } = useContext(applicationContext);
     const sortedShows = [...allShows].sort((a, b) => b.rating.average - a.rating.average)
     const first50Shows = [...sortedShows].slice(0, 48);
-    // //////Back to top button
-    // const [showButton, setShowButton] = useState(false)
-    // useEffect(() => {
-    //     // Button is displayed after scrolling for 300 pixels
-    //     const handleScrollButtonVisiblity = () => {
-    //         window.pageYOffset > 300 ? setShowButton(true) : setShowButton(false);
-    //     };
-    //     window.addEventListener('scroll', handleScrollButtonVisiblity);
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScrollButtonVisiblity);
-    //     };
-    // }, []);
-
-    // const handleScrollToTop =
-    //     () => {
-    //         window.scrollTo({ top: 0, behavior: 'smooth' });
-    //     };
-
-    // ////
 
     return (
         <div onClick={() => setShowSearchDropDown(false)} className="mainPage" >
+            <div className="ImageCarouselContainer">
+                <h1 className="h1Title">Discover the best films to enjoy. <br />
+                    Save those you want to see.</h1>
+                <ImageCarousel setSingleMovie={setSingleMovie} first50Shows={first50Shows} />
+            </div>
+            <h2>Top picks for today</h2>
             <Carousel />
+            <h3 className="top50tittle">Top 50 shows</h3>
 
             {first50Shows.map((show) => {
-
-
-
 
                 return (
                     <div key={show.id} className="movieCard" >
 
 
-                        < img onClick={() => setSingleMovie(show)} key={uuidv4()} className="movieCardpct" src={show?.image.medium} alt="" />
-                        <p className="ratings"><span>&#x2B50;</span>{show?.rating.average}</p>
+                        < img onClick={() => setSingleMovie(show)} key={show.id} className="movieCardpct" src={show?.image.medium} alt="" />
+                        <p className="ratings"><span><StarIcon className="starIcon" /></span>{show?.rating.average}</p>
                         <Tooltip title={show?.name} placement="top-start">
                             <p className={show?.name.length > 20 ? "nameLong" : "name"}  >
                                 {show?.name}
                             </p>
 
-
                         </Tooltip>
-                        {/* <button key={uuidv4()} ></button> */}
                         <Button numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} show={show} id={show.id} />
 
 
@@ -68,18 +54,6 @@ function MainPage({ setShowSearchDropDown, setNumberOfBookmarks, numberOFBookmar
 
                 )
             })}
-            {/* {showButton && (
-                <div className={`scrollToTop`}>
-                    <button
-                        className="scrollUpButton"
-
-                        onClick={handleScrollToTop}>
-                        <img className="scrollUpImg" src={"https://www.shareicon.net/data/256x256/2015/09/20/643612_arrows_512x512.png"} alt="scrollToTop" />
-                        Back to top
-                    </button>
-                </div>)
-            } */}
-
         </div >
     )
 }

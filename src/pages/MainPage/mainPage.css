@@ -11,6 +11,13 @@
     padding-top: 90px;
 }
 
+.h1Title {
+    color: white;
+    /* width: 100%;
+    text-align: center; */
+
+}
+
 .movieCard {
     margin: 20px;
     margin-bottom: 0px;
@@ -126,4 +133,35 @@ span {
     transition: 0.4s;
     cursor: pointer;
 
+}
+
+h2 {
+    color: white;
+    width: 100%;
+    padding-left: 40px;
+
+}
+
+h4 {
+    color: white;
+    width: 100%;
+    padding-left: 40px;
+    font-size: 180%;
+}
+
+.top50tittle {
+    color: white;
+    width: 100%;
+    padding-left: 40px;
+    font-size: 120%;
+
+}
+
+.ImageCarouselContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* padding-right: 10%;
+    padding-left: 10%; */
 }

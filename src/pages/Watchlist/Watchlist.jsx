@@ -1,5 +1,4 @@
 import "./watchlist.css"
-import { v4 as uuidv4 } from 'uuid';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import AppsIcon from '@mui/icons-material/Apps';
 import StarIcon from '@mui/icons-material/Star';
@@ -32,7 +31,7 @@ const Watchlist = ({ setShowSearchDropDown, isWatchlist, allShows }) => {
             <div className="gridFlexViewButton">
 
                 <span>{moviesWatchlist.length} titles</span>
-                <h2>Your Watchlist</h2>
+                <h2 className="watchListtitle">Your Watchlist</h2>
                 <button className="viewButton" onClick={() => setIsGrid(prev => !prev)}>
                     {!isGrid && <ViewListIcon sx={{ backgroundColor: "#C2C2C2" }} />}
                     {isGrid && <AppsIcon sx={{ backgroundColor: "#C2C2C2", }} />}
@@ -52,8 +51,8 @@ const Watchlist = ({ setShowSearchDropDown, isWatchlist, allShows }) => {
                         return dateStart !== dateEnd ? `${dateStart}-${dateEnd}` : `${dateStart}`
                     }
 
-                    return (<div id={uuidv4()} className={isGrid ? "movieCartinGrid" : "watchlistMovieCard"}>
-                        <div id={uuidv4()} >
+                    return (<div key={tempMovie.id} className={isGrid ? "movieCartinGrid" : "watchlistMovieCard"}>
+                        <div key={tempMovie.id} >
                             <img className="movieCardImg" src={tempMovie?.image?.medium} alt="" />
 
                         </div>
@@ -80,6 +79,7 @@ const Watchlist = ({ setShowSearchDropDown, isWatchlist, allShows }) => {
 
                 })}
             </section >
+
 
 
 

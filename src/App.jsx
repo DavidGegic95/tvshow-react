@@ -18,7 +18,9 @@ function App() {
   const [numberOFBookmarks, setNumberOfBookmarks] = useState(0)
   const [isWatchlist, setIsWatchlist] = useState(false)
   const [showSearchDropDown, setShowSearchDropDown] = useState(false)
-  const [randomShows, setRandomShows] = useState([])
+  const [randomShows] = useState([])
+  const [homeButtonClicked, setHomeButtonClicked] = useState(false)
+
 
 
   const randomShowsFun = (data) => {
@@ -80,21 +82,17 @@ function App() {
 
     if (localStorage.getItem("movies")) {
       setNumberOfBookmarks(Object.values(JSON.parse(localStorage.getItem("movies")))?.length)
-
     }
-
-    console.log(randomShows);
-
-
+    // eslint-disable-next-line
   }, [])
 
 
 
   return (
     <div className="App">
-      <Header setShowSearchDropDown={setShowSearchDropDown} showSearchDropDown={showSearchDropDown} isWatchlist={isWatchlist} setIsWatchlist={setIsWatchlist} numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
+      <Header setHomeButtonClicked={setHomeButtonClicked} setShowSearchDropDown={setShowSearchDropDown} showSearchDropDown={showSearchDropDown} isWatchlist={isWatchlist} setIsWatchlist={setIsWatchlist} numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
 
-      <ApplicationProvider value={{ allShows, setSingleMovie, randomShows }}>
+      <ApplicationProvider value={{ homeButtonClicked, singleMovie, allShows, setSingleMovie, randomShows }}>
         {showButton && (
           <div className={`scrollToTop`}>
             <button
@@ -113,7 +111,7 @@ function App() {
           !singleMovie ?
             <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
             :
-            <SingleShow setShowSearchDropDown={setShowSearchDropDown} setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
+            <SingleShow setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
         }
       </ApplicationProvider >
 

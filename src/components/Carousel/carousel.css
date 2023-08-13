@@ -22,6 +22,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
+    z-index: 1000;
 }
 
 .next-btn {
@@ -31,15 +32,29 @@
 .next-btn div,
 .pre-btn div {
     font-size: 50px;
-    background-color: rgba(255, 255, 255, 0.436);
-    box-shadow: 0px 0px 10px 1px black;
+    background-color: hsla(0, 0%, 7%, .45);
+    /* box-shadow: 0px 0px 10px 1px black; */
     border-radius: 10px;
     color: rgb(0, 0, 0);
     width: 50px;
-    height: 50px;
+    height: 70px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1000;
 
+}
+
+.next-btn div svg path,
+.pre-btn div svg path {
+    fill: white;
+    /* size: large; */
+}
+
+
+.pre-btn>div:hover svg path,
+.next-btn>div:hover svg path {
+    fill: #f5c518;
+    transition: 0.3s;
 }

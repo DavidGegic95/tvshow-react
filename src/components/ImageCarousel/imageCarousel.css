@@ -1,0 +1,12 @@
+.imageCarousel {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.imageCarousel:hover {
+    opacity: 0.8;
+    transition: 0.25s;
+}
