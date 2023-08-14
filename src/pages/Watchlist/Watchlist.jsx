@@ -5,12 +5,16 @@ import StarIcon from '@mui/icons-material/Star';
 
 // import { useEffect } from "react"
 
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import Summary from "../../components/Summary/Summary";
 import BookmarkButton from "../../components/BookmarkButton/BookmarkButton";
 
 const Watchlist = ({ setNumberOfBookmarks, setShowSearchDropDown, isWatchlist, allShows }) => {
-    const moviesWatchlist = localStorage.getItem("movies") ? [...Object.values(JSON.parse(localStorage.getItem("movies")))] : []
+    const memoCallBack = () => {
+        return localStorage.getItem("movies") ? [...Object.values(JSON.parse(localStorage.getItem("movies")))] : []
+
+    }
+    const moviesWatchlist = useMemo(() => memoCallBack(), [])
     const [isGrid, setIsGrid] = useState(false)
     const movieGenre = (genre1, genre2) => {
         return genre1 && genre2 ? `${genre1},${genre2}` : genre1 ? `${genre1}` : ""
@@ -82,10 +86,6 @@ const Watchlist = ({ setNumberOfBookmarks, setShowSearchDropDown, isWatchlist, a
 
                 })}
             </section >
-
-
-
-
 
         </div >
     )
