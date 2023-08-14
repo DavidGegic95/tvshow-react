@@ -14,26 +14,8 @@ const url = "http://api.tvmaze.com/shows"
 function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }) {
     const [seasons, setSeasons] = useState([])
     const [cast, setCast] = useState([])
-    let savedMovies = JSON.parse(localStorage.getItem("movies"));
-    let key = singleMovie.id
-    let text;
-    let is
-    if (savedMovies[key] = savedMovies) {
-        text = "Added to watchlist"
-        is = true
-
-
-    } else {
-        text = "Add to watchlist"
-        is = false
-    }
-
-    const [buttonText, setButtonText] = useState(text)
-    const [isClicked, setIsClicked] = useState(is)
-
-
-
-
+    const [buttonText, setButtonText] = useState("Add to watchlist")
+    const [isClicked, setIsClicked] = useState(false)
 
 
     const addToWatchlist = () => {
@@ -79,12 +61,17 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
     useEffect(() => {
         fetchSeasons()
         fetchCast()
+
+        let savedMovies = Object.values(JSON.parse(localStorage.getItem("movies")));
+        savedMovies.forEach(element => {
+            if (element.id === singleMovie.id) {
+                setButtonText("Added to watchlist")
+                setIsClicked(true)
+            }
+
+        });
     }, [])
 
-
-
-    // let replaced = singleMovie.summary.replace(/<\/?p[^>]*>/g, "");
-    // replaced = replaced.replace(/<\/?b[^>]*>/g, "")
 
     return (
         <div onClick={() => setShowSearchDropDown(false)} className="singleShowPage">
@@ -104,16 +91,6 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
                             <AddIcon className='singleShowIcon' />}
                     </button>
                 </div>
-                {/* <ul>{`Seasons(${seasons.length})`}
-                    {seasons.map((season) => {
-                        return (<li key={crypto.randomUUID()} >{`${season?.premiereDate} - ${season?.endDate}`}</li>)
-
-                    })}
-                </ul> */}
-
-
-
-
 
 
             </div>

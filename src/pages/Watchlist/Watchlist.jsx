@@ -33,8 +33,10 @@ const Watchlist = ({ setShowSearchDropDown, isWatchlist, allShows }) => {
                 <span>{moviesWatchlist.length} titles</span>
                 <h2 className="watchListtitle">Your Watchlist</h2>
                 <button className="viewButton" onClick={() => setIsGrid(prev => !prev)}>
-                    {!isGrid && <ViewListIcon sx={{ backgroundColor: "#C2C2C2" }} />}
-                    {isGrid && <AppsIcon sx={{ backgroundColor: "#C2C2C2", }} />}
+                    {isGrid ? <ViewListIcon sx={{ backgroundColor: "#C2C2C2" }} />
+                        :
+                        <AppsIcon sx={{ backgroundColor: "#C2C2C2", }} />}
+
                 </button>
 
             </div>
