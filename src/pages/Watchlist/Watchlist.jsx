@@ -36,7 +36,6 @@ const Watchlist = ({ setShowSearchDropDown, isWatchlist, allShows }) => {
                     {isGrid ? <ViewListIcon sx={{ backgroundColor: "#C2C2C2" }} />
                         :
                         <AppsIcon sx={{ backgroundColor: "#C2C2C2", }} />}
-
                 </button>
 
             </div>

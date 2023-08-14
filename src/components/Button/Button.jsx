@@ -5,7 +5,7 @@ import BasicModal from "../Modal/Modal";
 
 import React, { useEffect, useState, } from 'react'
 
-const Button = ({ show, setNumberOfBookmarks, numberOFBookmarks, id }) => {
+const Button = ({ show, setNumberOfBookmarks, id }) => {
     const [isClicked, setIsClicked] = useState(false)
 
     function checkLocalStorage() {

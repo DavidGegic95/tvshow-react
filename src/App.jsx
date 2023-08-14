@@ -106,7 +106,7 @@ function App() {
         }
 
 
-        {isWatchlist ? <Watchlist setShowSearchDropDown={setShowSearchDropDown} allShows={allShows} isWatchlist={isWatchlist} /> :
+        {isWatchlist ? <Watchlist setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} allShows={allShows} isWatchlist={isWatchlist} /> :
 
           !singleMovie ?
             <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
