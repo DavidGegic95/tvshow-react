@@ -7,8 +7,9 @@ import StarIcon from '@mui/icons-material/Star';
 
 import React, { useState } from 'react'
 import Summary from "../../components/Summary/Summary";
+import BookmarkButton from "../../components/BookmarkButton/BookmarkButton";
 
-const Watchlist = ({ setShowSearchDropDown, isWatchlist, allShows }) => {
+const Watchlist = ({ setNumberOfBookmarks, setShowSearchDropDown, isWatchlist, allShows }) => {
     const moviesWatchlist = localStorage.getItem("movies") ? [...Object.values(JSON.parse(localStorage.getItem("movies")))] : []
     const [isGrid, setIsGrid] = useState(false)
     const movieGenre = (genre1, genre2) => {
@@ -66,6 +67,7 @@ const Watchlist = ({ setShowSearchDropDown, isWatchlist, allShows }) => {
                                 <p><StarIcon style={{ fill: "#f5c518" }} sx={{ fontSize: 14 }} /> {tempMovie?.rating?.average}</p>
 
                             </div>
+                            <BookmarkButton setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={tempMovie} />
 
                             <Summary isGrid={isGrid} tempMovie={tempMovie} />
 
