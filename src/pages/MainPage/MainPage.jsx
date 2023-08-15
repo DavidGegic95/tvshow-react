@@ -6,6 +6,7 @@ import Carousel from "../../components/Carousel/Carousel"
 import StarIcon from '@mui/icons-material/Star';
 import "./mainPage.css"
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -15,6 +16,12 @@ function MainPage({ setShowSearchDropDown, setNumberOfBookmarks, numberOFBookmar
     const { setSingleMovie, allShows } = useContext(applicationContext);
     const sortedShows = [...allShows].sort((a, b) => b.rating.average - a.rating.average)
     const first50Shows = [...sortedShows].slice(0, 48);
+    const navigate = useNavigate()
+    const imgOnClick = (show) => {
+        setSingleMovie(show)
+        navigate("singleshow")
+    }
+
 
     return (
         <div onClick={() => setShowSearchDropDown(false)} className="mainPage" >
@@ -25,34 +32,30 @@ function MainPage({ setShowSearchDropDown, setNumberOfBookmarks, numberOFBookmar
             </div>
             <h2 className="topPicksTitle">Top picks for today</h2>
             <Carousel />
-            <h3 className="top50tittle">Top 50 shows</h3>
 
-            {first50Shows.map((show) => {
+            <div className="top50Div">
+                <h3 className="top50tittle">Top 50 shows</h3>
 
-                return (
-                    <div key={show.id} className="movieCard" >
+                {first50Shows.map((show) => {
 
-
-                        < img onClick={() => setSingleMovie(show)} key={show.id} className="movieCardpct" src={show?.image.medium} alt="" />
-                        <p className="ratings"><span><StarIcon className="starIcon" /></span>{show?.rating.average}</p>
-                        <Tooltip title={show?.name} placement="top-start">
-                            <p className={show?.name.length > 20 ? "nameLong" : "name"}  >
-                                {show?.name}
-                            </p>
-
-                        </Tooltip>
-                        <Button numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} show={show} id={show.id} />
+                    return (
+                        <div key={show.id} className="movieCard" >
 
 
+                            < img onClick={() => imgOnClick(show)} key={show.id} className="movieCardpct" src={show?.image.medium} alt="" />
+                            <p className="ratings"><span><StarIcon className="starIcon" /></span>{show?.rating.average}</p>
+                            <Tooltip title={show?.name} placement="top-start">
+                                <p className={show?.name.length > 20 ? "nameLong" : "name"}  >
+                                    {show?.name}
+                                </p>
 
-                    </div>
+                            </Tooltip>
+                            <Button numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} show={show} id={show.id} />
+                        </div>
 
-
-
-
-
-                )
-            })}
+                    )
+                })}
+            </div>
         </div >
     )
 }

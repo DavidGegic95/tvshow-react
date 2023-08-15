@@ -10,11 +10,19 @@
     flex-direction: column;
 }
 
+.singleShowPage>h1 {
+    margin-bottom: 2vh;
+}
+
 .singleShowContent {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
+}
+
+.singlePageImage {
+    align-self: flex-start;
 }
 
 .singlePageImage {

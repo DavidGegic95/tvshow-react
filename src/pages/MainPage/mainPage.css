@@ -33,6 +33,14 @@
 
 }
 
+.top50Div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
 img {
     border-radius: 6px;
 }

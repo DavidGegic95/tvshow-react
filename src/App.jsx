@@ -1,10 +1,13 @@
 import { ApplicationProvider } from "./context.js";
 import MainPage from './pages/MainPage/MainPage';
 import SingleShow from './pages/SingleShow/SingleShow';
+import Watchlist from "./pages/Watchlist/Watchlist.jsx";
+import { Route, Routes } from "react-router-dom"
+import { Link } from 'react-router-dom';
+
 import './App.css';
 import { useEffect, useState } from 'react';
 import Header from "./Header/Header.jsx";
-import Watchlist from "./pages/Watchlist/Watchlist.jsx";
 const url = "http://api.tvmaze.com/shows"
 
 
@@ -90,6 +93,9 @@ function App() {
 
   return (
     <div className="App">
+
+
+
       <Header setHomeButtonClicked={setHomeButtonClicked} setShowSearchDropDown={setShowSearchDropDown} showSearchDropDown={showSearchDropDown} isWatchlist={isWatchlist} setIsWatchlist={setIsWatchlist} numberOFBookmarks={numberOFBookmarks} isFetched={isFetched} setIsFetched={setIsFetched} setSingleMovie={setSingleMovie} />
 
       <ApplicationProvider value={{ homeButtonClicked, singleMovie, allShows, setSingleMovie, randomShows }}>
@@ -106,17 +112,43 @@ function App() {
         }
 
 
-        {isWatchlist ? <Watchlist setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} allShows={allShows} isWatchlist={isWatchlist} /> :
+
+
+
+
+        {/* {isWatchlist ? <Watchlist setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} allShows={allShows} isWatchlist={isWatchlist} /> :
 
           !singleMovie ?
             <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
             :
             <SingleShow setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
-        }
+        } */}
+        <Routes>
+          <Route path="/" element={
+            <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie} />
+          } />
+          <Route path="singleshow" element={
+            <SingleShow setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
+          } />
+          <Route path="watchlist" element={
+            <Watchlist setSingleMovie={setSingleMovie} setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} allShows={allShows} isWatchlist={isWatchlist} />
+          } />
+          <Route path="*" element={
+            <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie} />
+          } />
+        </Routes>
+
+
+
+
+
+
       </ApplicationProvider >
 
       <footer className='App-footer'>Developed by David Gegic</footer>
+
     </div >
+
   );
 }
 

@@ -3,13 +3,11 @@ import "./searchDropdown.css"
 import React from 'react'
 import PersonIcon from '@mui/icons-material/Person';
 import MovieIcon from '@mui/icons-material/Movie';
+import { useNavigate } from "react-router-dom";
 
 const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInputValue, searchOption, setSearchOption }) => {
-    // console.log(searchResults[0]?.image);
-    // console.log(searchResults[0].show.url);
-    // console.log(searchOption);
-    // console.log(searchResults);
-    // console.log(searchResults);
+    const navigate = useNavigate()
+
 
 
 
@@ -41,6 +39,7 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
                     // console.log(singleMovie?.show.image.medium);
                     function onClickButton(singleMovieShow) {
                         setSingleMovie(singleMovieShow)
+                        navigate("singleshow")
                         setIsFetched(prev => !prev)
                         setInputValue("")
 

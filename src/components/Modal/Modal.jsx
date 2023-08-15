@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import "./modal.css"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useNavigate } from 'react-router-dom';
 
 
 const style = {
@@ -29,6 +30,11 @@ export default function BasicModal({ show }) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [moreInfo, setMoreInfo] = useState(false)
+    const navigate = useNavigate()
+    const imgOnClick = (show) => {
+        setSingleMovie(show)
+        navigate("singleshow")
+    }
     const movieGenre = (genre1, genre2) => {
         if (genre1 && genre2) {
             return `${genre1} · ${genre2}`
@@ -45,7 +51,6 @@ export default function BasicModal({ show }) {
 
     return (
         <div className='infoDiv' >
-            {/* <Button onClick={handleOpen}>Open modal</Button> */}
             <button className='infoButton' onClick={handleOpen}>i</button>
             <Modal
                 open={open}
@@ -60,7 +65,7 @@ export default function BasicModal({ show }) {
                         <div className='imageTextDivModal'>
                             <img className='imgModal' src={show?.image.medium} alt="" />
                             <div className='tittleRatingsGenreModalDiv'>
-                                <p className='modalTitle'>{show?.name}<ArrowForwardIosIcon onClick={() => setSingleMovie(show)} className='arrowForwardIosIcon' /> </p>
+                                <p className='modalTitle'>{show?.name}<ArrowForwardIosIcon onClick={() => imgOnClick(show)} className='arrowForwardIosIcon' /> </p>
                                 <p className='ratingsModal'><StarIcon className='starIcon' />{show?.rating?.average}/10</p>
                                 <p>{movieGenre(show?.genres[0], show?.genres[1])}</p>
 
@@ -70,11 +75,6 @@ export default function BasicModal({ show }) {
                         <div className='summaryDiv'>
                             <p className={moreInfo ? 'summaryModal' : 'summaryModal cut-text'}>{show.summary.replace(/<\/?b[^>]*>/g, "").replace(/<\/?i[^>]*>/g, "").replace(/<\/?p[^>]*>/g, "")}</p> <button onClick={() => setMoreInfo(prev => !prev)} className='summaryButtonMoreInfo' >{moreInfo ? 'less info' : 'more info'}</button>
                         </div>
-
-
-
-
-                        {/* Duis mollis, est non commodo luctus, nisi erat porttitor ligula. */}
                     </Typography>
                 </Box>
             </Modal>

@@ -70,14 +70,14 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
             }
 
         });
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
     return (
         <div onClick={() => setShowSearchDropDown(false)} className="singleShowPage">
             <h1>{singleMovie?.name}</h1>
             <div className='singleShowContent'>
-                <img className='singlePageImage' src={singleMovie?.image?.original} alt="" />
+                <img className='singlePageImage' src={singleMovie?.image?.original} alt={singleMovie.name} />
 
                 <div className='summaryAccordionDiv'>
                     <div className='singleMovieSummary' dangerouslySetInnerHTML={{ __html: `${singleMovie?.summary}` }} />

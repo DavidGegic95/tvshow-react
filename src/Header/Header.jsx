@@ -4,6 +4,9 @@ import "./header.css"
 import SearchDropwdown from '../components/SearchDropdown/SearchDropwdown';
 import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import { useNavigate } from 'react-router-dom';
+import MainPage from '../pages/MainPage/MainPage';
+
 
 
 function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDown, setSingleMovie, isFetched, setIsFetched, numberOFBookmarks, isWatchlist, setIsWatchlist }) {
@@ -12,6 +15,7 @@ function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDow
     const [searchResults, setSearchResults] = useState([])
     const [optionsDropdown, setOptionsDropdown] = useState(false)
     const [searchOption, setSearchOption] = useState("All")
+    const navigate = useNavigate()
 
 
     const debounced = useDebouncedCallback(() => {
@@ -59,6 +63,13 @@ function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDow
         setSingleMovie(null)
         setIsWatchlist(false)
         setHomeButtonClicked(prev => !prev)
+        navigate("/")
+    }
+    const watchlistButton = () => {
+        navigate("watchlist")
+        setIsWatchlist(true)
+        setOptionsDropdown(false)
+        setIsFetched(false)
     }
 
     const numberOfBookmarks = Object.values(JSON.parse(localStorage?.getItem("movies"))).length
@@ -78,7 +89,7 @@ function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDow
 
 
             </div>
-            <div aria-disabled={isWatchlist} onClick={() => setIsWatchlist(prev => !prev)} className={!isWatchlist && numberOfBookmarks > 0 ? 'bookmarkDiv' : " bookmarkDiv bookmarkDivDisabled"}>
+            <div onClick={watchlistButton} className={numberOfBookmarks > 0 ? 'bookmarkDiv' : " bookmarkDiv bookmarkDivDisabled"}>
 
                 <BookmarkIcon className='BookmarkIcon' color="white"></BookmarkIcon>
                 <span className='plusSpan'>+</span><span className='bookmarkSpan'>Watchlist</span>

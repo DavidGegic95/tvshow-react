@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import CheckIcon from '@mui/icons-material/Check';
 import AddIcon from '@mui/icons-material/Add';
+import "./bookmarkbutton.css"
 
 
 const BookmarkButton = ({ singleMovie, setNumberOfBookmarks }) => {
@@ -35,7 +36,7 @@ const BookmarkButton = ({ singleMovie, setNumberOfBookmarks }) => {
     }
 
     return (
-        <button onClick={addToWatchlist}>{buttonText}
+        <button className='bookmarkButton' onClick={addToWatchlist}>{buttonText}
             {isClicked ?
                 <CheckIcon className='singleShowIcon' />
                 :

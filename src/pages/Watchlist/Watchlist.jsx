@@ -8,8 +8,9 @@ import StarIcon from '@mui/icons-material/Star';
 import React, { useMemo, useState } from 'react'
 import Summary from "../../components/Summary/Summary";
 import BookmarkButton from "../../components/BookmarkButton/BookmarkButton";
+import { useNavigate } from "react-router-dom";
 
-const Watchlist = ({ setNumberOfBookmarks, setShowSearchDropDown, isWatchlist, allShows }) => {
+const Watchlist = ({ setSingleMovie, setNumberOfBookmarks, setShowSearchDropDown, isWatchlist, allShows }) => {
     const memoCallBack = () => {
         return localStorage.getItem("movies") ? [...Object.values(JSON.parse(localStorage.getItem("movies")))] : []
 
@@ -24,6 +25,11 @@ const Watchlist = ({ setNumberOfBookmarks, setShowSearchDropDown, isWatchlist, a
     }
     const displayNone = () => {
         return isGrid ? "displayNone" : ""
+    }
+    const navigate = useNavigate()
+    const imgOnClick = (show) => {
+        setSingleMovie(show)
+        navigate("singleshow")
     }
 
 
@@ -59,23 +65,24 @@ const Watchlist = ({ setNumberOfBookmarks, setShowSearchDropDown, isWatchlist, a
 
                     return (<div key={tempMovie.id} className={isGrid ? "movieCartinGrid" : "watchlistMovieCard"}>
                         <div key={tempMovie.id} >
-                            <img className="movieCardImg" src={tempMovie?.image?.medium} alt="" />
+                            <img onClick={() => imgOnClick(tempMovie)} className="movieCardImg" src={tempMovie?.image?.medium} alt="" />
+
 
                         </div>
 
                         <div className={isGrid ? "movieCardContentGrid" : "movieCardContentFlex"}>
                             <div className="placeStart">
                                 <p className="movieName">{tempMovie?.name}</p>
-                                <p className={displayNone()}>{date(tempMovie)}</p>
-                                <span className={displayNone()}>{movieGenre(tempMovie?.genres[0], tempMovie?.genres[1])}</span>
-                                <p><StarIcon style={{ fill: "#f5c518" }} sx={{ fontSize: 14 }} /> {tempMovie?.rating?.average}</p>
+                                <span className={displayNone()}>{date(tempMovie)}|</span>
+                                <span className={displayNone()}>{movieGenre(tempMovie?.genres[0], tempMovie?.genres[1])}|</span>
+                                <span><StarIcon className="starIconWatchist" style={{ fill: "#f5c518" }} sx={{ fontSize: 20 }} /> {tempMovie?.rating?.average}</span>
 
                             </div>
                             <BookmarkButton setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={tempMovie} />
-
                             <Summary isGrid={isGrid} tempMovie={tempMovie} />
 
                         </div>
+
 
 
 
