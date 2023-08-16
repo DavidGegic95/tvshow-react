@@ -5,7 +5,6 @@ import SearchDropwdown from '../components/SearchDropdown/SearchDropwdown';
 import OptionsDropdown from '../components/OptionsDropdown/OptionsDropdown';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { useNavigate } from 'react-router-dom';
-import MainPage from '../pages/MainPage/MainPage';
 
 
 
@@ -55,6 +54,13 @@ function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDow
         setInputValue("")
 
     }
+    const onClickShowsPage = () => {
+        setIsFetched(false)
+        setOptionsDropdown(false)
+        setInputValue("")
+        navigate("shows/page/1")
+
+    }
 
     const homeButtonOnClick = () => {
         // console.log(optionsDropdown);
@@ -63,6 +69,7 @@ function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDow
         setSingleMovie(null)
         setIsWatchlist(false)
         setHomeButtonClicked(prev => !prev)
+        setInputValue("")
         navigate("/")
     }
     const watchlistButton = () => {
@@ -72,27 +79,24 @@ function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDow
         setIsFetched(false)
     }
 
-    const numberOfBookmarks = Object.values(JSON.parse(localStorage?.getItem("movies"))).length
+    const numberOfBookmarks = JSON.parse(localStorage?.getItem("movies")) ? Object.values(JSON.parse(localStorage?.getItem("movies")))?.length : 0
 
 
 
     return (
         <header>
             <nav>
-                <button className='homeButton' onClick={() => homeButtonOnClick()} >DVDShow</button>
-                <button className='homeButton' onClick={() => navigate("shows/page/1")}>Shows</button>
-
-
+                <button className='homeButton' onClick={homeButtonOnClick} >Home</button>
+                <button className='homeButton' onClick={onClickShowsPage}>Shows</button>
             </nav>
 
             <div className='searchSection'>
-                {createOptinsDropdown()}
                 <button onClick={() => onClick()} className='filterSearch'>{searchOption}</button>
                 <input onClick={() => setOptionsDropdown(false)} onChange={e => onChange1(e.target.value)} value={inputValue} type="text" placeholder='Search...' />
                 {/* <button className='searchIcon'>&#128269;</button> */}
-
-
             </div>
+            {createOptinsDropdown()}
+
             <div onClick={watchlistButton} className={numberOfBookmarks > 0 ? 'bookmarkDiv' : " bookmarkDiv bookmarkDivDisabled"}>
 
                 <BookmarkIcon className='BookmarkIcon' color="white"></BookmarkIcon>

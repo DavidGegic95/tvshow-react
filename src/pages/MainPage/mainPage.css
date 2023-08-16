@@ -34,9 +34,15 @@
 }
 
 .top50Div {
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 5%;
+    padding-top: 4vh;
     flex-wrap: wrap;
 
 }
@@ -160,8 +166,9 @@ h4 {
     color: white;
     width: 100%;
     padding-left: 40px;
-    font-size: 150%;
+    font-size: 200%;
     margin-top: 90px;
+    text-align: center;
 
 }
 
@@ -174,7 +181,6 @@ h4 {
     padding-left: 10%; */
 }
 
-a {
+/* a {
     color: white;
-}
-
+} */

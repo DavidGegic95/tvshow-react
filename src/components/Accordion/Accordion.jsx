@@ -26,7 +26,7 @@ export default function SimpleAccordion({ cast, seasons }) {
                 <AccordionDetails >
                     <Typography >
                         {max10Cast.map(({ person }) => {
-                            return (<p className='accordionText' key={person?.name} >{person?.name}</p>)
+                            return (<p key={person.id} className='accordionText'  >{person?.name}</p>)
 
                         })}
                     </Typography>

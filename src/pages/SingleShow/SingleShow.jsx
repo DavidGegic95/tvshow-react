@@ -25,17 +25,19 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
         let key = `${singleMovie.id}`
         existing[key] = singleMovie;
         localStorage.setItem('movies', JSON.stringify(existing));
-        if (!isClicked) {
+        if (!isClicked && existing) {
             setButtonText("Added to watchlist")
             setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
         } else {
-            setButtonText("Add to watchlist")
-            let existing = localStorage.getItem("movies");
-            existing = existing ? JSON.parse(existing) : {};
-            let key = `${singleMovie.id}`
-            delete existing[key]
-            localStorage.setItem('movies', JSON.stringify(existing));
-            setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
+            if (existing) {
+                setButtonText("Add to watchlist")
+                let existing = localStorage.getItem("movies");
+                existing = existing ? JSON.parse(existing) : {};
+                let key = `${singleMovie.id}`
+                delete existing[key]
+                localStorage.setItem('movies', JSON.stringify(existing));
+                setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
+            }
         }
 
 
@@ -62,7 +64,7 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
         fetchSeasons()
         fetchCast()
 
-        let savedMovies = Object.values(JSON.parse(localStorage.getItem("movies")));
+        let savedMovies = JSON.parse(localStorage.getItem("movies")) ? Object.values(JSON.parse(localStorage.getItem("movies"))) : []
         savedMovies.forEach(element => {
             if (element.id === singleMovie.id) {
                 setButtonText("Added to watchlist")
@@ -77,7 +79,7 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
         <div onClick={() => setShowSearchDropDown(false)} className="singleShowPage">
             <h1>{singleMovie?.name}</h1>
             <div className='singleShowContent'>
-                <img className='singlePageImage' src={singleMovie?.image?.original} alt={singleMovie.name} />
+                <img className='singlePageImage' src={singleMovie?.image?.original} alt={singleMovie?.name} />
 
                 <div className='summaryAccordionDiv'>
                     <div className='singleMovieSummary' dangerouslySetInnerHTML={{ __html: `${singleMovie?.summary}` }} />

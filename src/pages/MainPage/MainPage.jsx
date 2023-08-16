@@ -34,7 +34,7 @@ function MainPage({ setShowSearchDropDown, setNumberOfBookmarks, numberOFBookmar
             <Carousel />
 
             <div className="top50Div">
-                <h3 className="top50tittle">Top 50 shows</h3>
+                <h3 className="top50tittle">Top rated shows</h3>
 
                 {first50Shows.map((show) => {
 
