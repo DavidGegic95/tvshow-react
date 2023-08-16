@@ -3,11 +3,10 @@ import MainPage from './pages/MainPage/MainPage';
 import SingleShow from './pages/SingleShow/SingleShow';
 import Watchlist from "./pages/Watchlist/Watchlist.jsx";
 import { Route, Routes } from "react-router-dom"
-import { Link } from 'react-router-dom';
-
 import './App.css';
 import { useEffect, useState } from 'react';
 import Header from "./Header/Header.jsx";
+import ShowsPage from "./pages/ShowsPage/ShowsPage.jsx";
 const url = "http://api.tvmaze.com/shows"
 
 
@@ -49,7 +48,6 @@ function App() {
   // //////Back to top button
   const [showButton, setShowButton] = useState(false)
   useEffect(() => {
-    // Button is displayed after scrolling for 300 pixels
     const handleScrollButtonVisiblity = () => {
       window.pageYOffset > 300 ? setShowButton(true) : setShowButton(false);
     };
@@ -126,6 +124,9 @@ function App() {
         <Routes>
           <Route path="/" element={
             <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie} />
+          } />
+          <Route path="shows/page/:num" element={
+            <ShowsPage setSingleMovie={setSingleMovie} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} />
           } />
           <Route path="singleshow" element={
             <SingleShow setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} setSingleMovie={setSingleMovie} singleMovie={singleMovie} />

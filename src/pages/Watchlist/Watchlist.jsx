@@ -29,7 +29,7 @@ const Watchlist = ({ setSingleMovie, setNumberOfBookmarks, setShowSearchDropDown
     const navigate = useNavigate()
     const imgOnClick = (show) => {
         setSingleMovie(show)
-        navigate("singleshow")
+        navigate("/singleshow")
     }
 
 

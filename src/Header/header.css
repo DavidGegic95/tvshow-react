@@ -8,6 +8,15 @@ header {
     justify-content: space-evenly;
 }
 
+header>nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+    width: 15%;
+    color: white;
+}
+
 input {
     width: 500px;
     height: 30px;

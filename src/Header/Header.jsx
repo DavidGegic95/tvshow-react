@@ -78,9 +78,13 @@ function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDow
 
     return (
         <header>
+            <nav>
+                <button className='homeButton' onClick={() => homeButtonOnClick()} >DVDShow</button>
+                <button className='homeButton' onClick={() => navigate("shows/page/1")}>Shows</button>
 
-            {/* <p>DVDShow</p> */}
-            <button className='homeButton' onClick={() => homeButtonOnClick()} >DVDShow</button>
+
+            </nav>
+
             <div className='searchSection'>
                 {createOptinsDropdown()}
                 <button onClick={() => onClick()} className='filterSearch'>{searchOption}</button>

@@ -22,8 +22,6 @@ const Button = ({ show, setNumberOfBookmarks, id }) => {
 
     useEffect(() => {
         checkLocalStorage()
-        console.log("check");
-
         // eslint-disable-next-line
     }, [])
 

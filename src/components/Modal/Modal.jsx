@@ -63,7 +63,7 @@ export default function BasicModal({ show }) {
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         <div className='imageTextDivModal'>
-                            <img className='imgModal' src={show?.image.medium} alt="" />
+                            <img className='imgModal' src={show?.image?.medium} alt="" />
                             <div className='tittleRatingsGenreModalDiv'>
                                 <p className='modalTitle'>{show?.name}<ArrowForwardIosIcon onClick={() => imgOnClick(show)} className='arrowForwardIosIcon' /> </p>
                                 <p className='ratingsModal'><StarIcon className='starIcon' />{show?.rating?.average}/10</p>
