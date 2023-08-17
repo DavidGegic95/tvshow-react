@@ -15,35 +15,48 @@ export default function SimpleAccordion({ cast, seasons }) {
 
     return (
         <div>
-            <Accordion sx={{ backgroundColor: "#C2C2C2", color: "#242424" }} className='accordion'>
-                <AccordionSummary
+            <Accordion key="cast" sx={{ backgroundColor: "#C2C2C2", color: "#242424" }} className='accordion'>
+                <AccordionSummary key="cast1"
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
-                    <Typography>Cast</Typography>
+                    <Typography key="cast3">Cast</Typography>
                 </AccordionSummary>
                 <AccordionDetails >
-                    <Typography >
+                    <Typography key="cast4">
                         {max10Cast.map(({ person }) => {
-                            return (<p key={person.id} className='accordionText'  >{person?.name}</p>)
+
+                            return (
+                                <>
+                                    <span key={person.id} className='accordionText'  >{person?.name}</span>
+                                    <br key={person.id + 1000} />
+                                </>
+                            )
+
 
                         })}
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion sx={{ backgroundColor: "#C2C2C2", color: "#242424" }} >
-                <AccordionSummary
+            <Accordion key="season" sx={{ backgroundColor: "#C2C2C2", color: "#242424" }} >
+                <AccordionSummary key="sesaon1"
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                 >
                     <Typography>Seasons</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
+                <AccordionDetails key="sesaon2">
+                    <Typography key="sesaon3">
                         {seasons.map((season) => {
-                            return (<p key={seasons?.premiereDate} >{`${season?.premiereDate} - ${season?.endDate}`}</p>)
+                            return season?.premiereDate && season?.endDate ?
+                                (<>
+                                    <span className='accordionText' key={season?.premiereDate} >{`${season?.premiereDate} - ${season?.endDate}`}</span>
+                                    <br key={season?.premiereDate + 1000} />
+                                </>)
+
+                                : null
 
                         })}
                     </Typography>

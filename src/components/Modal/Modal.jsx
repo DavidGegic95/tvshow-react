@@ -33,7 +33,7 @@ export default function BasicModal({ show }) {
     const navigate = useNavigate()
     const imgOnClick = (show) => {
         setSingleMovie(show)
-        navigate("singleshow")
+        navigate("/singleshow")
     }
     const movieGenre = (genre1, genre2) => {
         if (genre1 && genre2) {
@@ -73,7 +73,12 @@ export default function BasicModal({ show }) {
 
                         </div>
                         <div className='summaryDiv'>
-                            <p className={moreInfo ? 'summaryModal' : 'summaryModal cut-text'}>{show.summary.replace(/<\/?b[^>]*>/g, "").replace(/<\/?i[^>]*>/g, "").replace(/<\/?p[^>]*>/g, "")}</p> <button onClick={() => setMoreInfo(prev => !prev)} className='summaryButtonMoreInfo' >{moreInfo ? 'less info' : 'more info'}</button>
+                            <p className={moreInfo ? 'summaryModal' : 'summaryModal cut-text'}>
+                                {show.summary.replace(/<\/?b[^>]*>/g, "").replace(/<\/?i[^>]*>/g, "").replace(/<\/?p[^>]*>/g, "")}
+                            </p>
+                            <button onClick={() => setMoreInfo(prev => !prev)} className='summaryButtonMoreInfo' >
+                                {moreInfo ? 'less info' : 'more info'}
+                            </button>
                         </div>
                     </Typography>
                 </Box>

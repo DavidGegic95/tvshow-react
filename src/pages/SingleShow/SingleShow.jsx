@@ -4,6 +4,7 @@ import "./singleShow.css"
 import Accordion from "../../components/Accordion/Accordion"
 import CheckIcon from '@mui/icons-material/Check';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from 'react-router-dom';
 
 
 const url = "http://api.tvmaze.com/shows"
@@ -16,6 +17,7 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
     const [cast, setCast] = useState([])
     const [buttonText, setButtonText] = useState("Add to watchlist")
     const [isClicked, setIsClicked] = useState(false)
+    const navigate = useNavigate()
 
 
     const addToWatchlist = () => {
@@ -48,30 +50,56 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
 
     function fetchSeasons() {
         fetch(`${url}/${singleMovie?.id}/seasons`)
-            .then(data => data.json())
-            .then(data => console.log(data) || setSeasons(data))
+            .then((response) => {
+                if (response.ok) {
+                    return response.json()
+                }
+                throw new Error('failed to fetch')
+            })
+            // .then(data => data.json())
+            .then(data => setSeasons(data))
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     function fetchCast() {
         fetch(`${url}/${singleMovie?.id}/cast`)
-            .then(data => data.json())
-            .then(data => console.log(data) || setCast(data))
+            .then((response) => {
+                if (response.ok) {
+                    return response.json()
+                }
+                throw new Error('failed to fetch||||||||||||')
+            })
+            .then(data => setCast(data))
+            .catch((error) => {
+                console.log(error);
+            })
 
     }
 
 
     useEffect(() => {
-        fetchSeasons()
-        fetchCast()
+        if (!singleMovie) {
+            navigate("/")
+        } else {
+            fetchSeasons()
+            fetchCast()
+            let savedMovies = JSON.parse(localStorage.getItem("movies")) ? Object.values(JSON.parse(localStorage.getItem("movies"))) : null
 
-        let savedMovies = JSON.parse(localStorage.getItem("movies")) ? Object.values(JSON.parse(localStorage.getItem("movies"))) : []
-        savedMovies.forEach(element => {
-            if (element.id === singleMovie.id) {
-                setButtonText("Added to watchlist")
-                setIsClicked(true)
+            if (savedMovies && singleMovie) {
+                savedMovies.forEach(element => {
+                    if (element.id === singleMovie.id) {
+                        setButtonText("Added to watchlist")
+                        setIsClicked(true)
+                    }
+                })
             }
 
-        });
+        }
+
+
+
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
