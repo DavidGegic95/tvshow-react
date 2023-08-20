@@ -33,7 +33,6 @@ const Button = ({ show, setNumberOfBookmarks, id }) => {
         existing = existing ? JSON.parse(existing) : {};
         let key = `${show.id}`
         existing[key] = show;
-        console.log(existing);
         localStorage.setItem('movies', JSON.stringify(existing));
         if (!isClicked) {
             setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)

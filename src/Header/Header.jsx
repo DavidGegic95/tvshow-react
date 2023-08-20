@@ -63,7 +63,6 @@ function Header({ setHomeButtonClicked, setShowSearchDropDown, showSearchDropDow
     }
 
     const homeButtonOnClick = () => {
-        // console.log(optionsDropdown);
         setOptionsDropdown(false)
         setIsFetched(false)
         setSingleMovie(null)

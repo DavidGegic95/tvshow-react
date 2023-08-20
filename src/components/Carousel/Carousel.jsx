@@ -20,7 +20,6 @@ const Carousel = () => {
     }
 
     const btnpressnext = () => {
-        console.log(box.current);
         if (box.current) {
             let width = box.current.clientWidth;
             box.current.scrollLeft = box.current.scrollLeft + width;

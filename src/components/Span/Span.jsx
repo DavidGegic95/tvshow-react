@@ -13,7 +13,6 @@ const Span = () => {
         setButtonText("-")
         // } else { setButtonText("+") }
 
-        // console.log(savedMovies);
     }
 
     return (

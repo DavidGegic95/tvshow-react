@@ -36,7 +36,6 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
                 &&
 
                 searchResults?.map((singleMovie, index) => {
-                    // console.log(singleMovie?.show.image.medium);
                     function onClickButton(singleMovieShow) {
                         setSingleMovie(singleMovieShow)
                         navigate("singleshow")
@@ -78,10 +77,7 @@ const SearchDropwdown = ({ searchResults, setSingleMovie, setIsFetched, setInput
                 &&
 
                 searchResults.map((actor, index) => {
-                    console.log(actor);
-                    // console.log(singleMovie?.show.image.medium);
                     function onClickButton() {
-                        // setSingleMovie(singleMovieShow)
                         setIsFetched(prev => !prev)
                         setInputValue("")
 
