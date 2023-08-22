@@ -28,7 +28,6 @@
 }
 
 .search:hover {
-    /* opacity: 0.8; */
     background-color: #444444;
     transition: 0.3s;
 }

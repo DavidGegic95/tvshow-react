@@ -2,7 +2,6 @@
     width: 530px;
     color: black;
     background-color: grey;
-    /* border: 1px solid white; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,18 +17,6 @@
 
 
 
-/* button {
-    width: 530px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    border: 1px solid white;
-    border-radius: 6px;
-    background-color: #242424;
-    height: 60px;
-
-
-} */
 
 .searchResult {
     width: 530px;
@@ -89,8 +76,3 @@
     margin-right: 15px;
     margin-left: 15px;
 }
-
-/* .actorInfo {
-    text-decoration: none;
-    color: white;
-} */

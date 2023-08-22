@@ -69,7 +69,7 @@ function SingleShow({ singleMovie, setShowSearchDropDown, setNumberOfBookmarks }
                 if (response.ok) {
                     return response.json()
                 }
-                throw new Error('failed to fetch||||||||||||')
+                throw new Error('failed to fetch')
             })
             .then(data => setCast(data))
             .catch((error) => {

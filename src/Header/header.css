@@ -23,8 +23,6 @@ input {
     height: 30px;
     border: none;
     padding-left: 6px;
-    /* border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px; */
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
 
@@ -38,17 +36,6 @@ input:focus {
     display: none;
 }
 
-/* .searchIcon {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: white;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-
-} */
 
 .searchSection {
     width: 40%;
@@ -97,19 +84,6 @@ input:focus {
     padding-right: 2px;
 }
 
-
-/* .bookmarHeaderButton {
-    height: 30px;
-    width: 100px;
-    background-color: #242424;
-    color: white;
-    border: none;
-    border: none;
-    border-radius: 20px;
-    padding-bottom: 6px;
-    cursor: pointer;
-
-} */
 
 .bookmarHeaderButton:hover {
     opacity: 0.8;

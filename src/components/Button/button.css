@@ -1,19 +1,6 @@
-/* .bookmark {
-    position: relative;
-    top: 100px;
-    width: 0;
-    height: 100px;
-    border: 50px solid transparent;
-    border-bottom: 30px solid rgba(128, 128, 128, 0.1);
-    background-color: grey;
-    opacity: 0.7;
-    border-radius: 20px 20px 1px 1px;
-
-} */
-
 .bookmark {
     position: relative;
-    bottom: 432px;
+    bottom: 431px;
     left: 0px;
     background-color: #242424;
     color: white;
@@ -40,10 +27,6 @@
     border: none;
 }
 
-/* .buttonDiv {
-    height: 425px;
-    width: 210px;
-} */
 
 .addWatchlistButton {
     border-bottom-left-radius: 6px;

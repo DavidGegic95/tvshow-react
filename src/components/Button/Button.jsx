@@ -41,7 +41,6 @@ const Button = ({ show, setNumberOfBookmarks, id }) => {
             existing = existing ? JSON.parse(existing) : {};
             let key = `${show.id}`
             delete existing[key]
-            console.log(existing);
             localStorage.setItem('movies', JSON.stringify(existing));
             setNumberOfBookmarks(Object.keys(JSON.parse(localStorage.getItem("movies"))).length)
         }
