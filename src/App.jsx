@@ -109,18 +109,6 @@ function App() {
           </div>)
         }
 
-
-
-
-
-
-        {/* {isWatchlist ? <Watchlist setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} allShows={allShows} isWatchlist={isWatchlist} /> :
-
-          !singleMovie ?
-            <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie}></MainPage>
-            :
-            <SingleShow setNumberOfBookmarks={setNumberOfBookmarks} setShowSearchDropDown={setShowSearchDropDown} setSingleMovie={setSingleMovie} singleMovie={singleMovie} />
-        } */}
         <Routes>
           <Route path="/" element={
             <MainPage setShowSearchDropDown={setShowSearchDropDown} numberOFBookmarks={numberOFBookmarks} setNumberOfBookmarks={setNumberOfBookmarks} singleMovie={singleMovie} />
