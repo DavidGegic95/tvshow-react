@@ -1,186 +1,144 @@
 .mainPage {
-    width: 100%;
-    min-height: 90vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: black;
-    padding-bottom: 40px;
-    padding-top: 90px;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: black;
+  padding-bottom: 40px;
+  padding-top: 90px;
 }
 
 .h1Title {
-    color: white;
-    /* width: 100%;
-    text-align: center; */
-
+  color: white;
 }
 
 .movieCard {
-    margin: 20px;
-    margin-bottom: 0px;
-    background-color: #242424;
-    height: 425px;
-    border: none;
-    border-radius: 6px;
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column; */
-
-
+  margin: 20px;
+  margin-bottom: 0px;
+  background-color: #242424;
+  height: 425px;
+  border: none;
+  border-radius: 6px;
 }
 
 .top50Div {
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5%;
-    padding-top: 4vh;
-    flex-wrap: wrap;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  padding-top: 4vh;
+  flex-wrap: wrap;
 }
 
 img {
-    border-radius: 6px;
+  border-radius: 6px;
 }
-
-
 
 .movieCardpct:hover {
-    /* transform: scale(1.05); */
-    opacity: 0.7;
-    transition: 0.4s;
-    cursor: pointer;
+  opacity: 0.7;
+  transition: 0.4s;
+  cursor: pointer;
 }
-
-
-
-/* .movieCard:hover {
-    cursor: pointer;
-    transform: scale(1.05); 
-    opacity: 0.7;
-    transition: 0.4s;
-
-}  */
 
 .ratings {
-    color: white;
-    padding-left: 10px;
-    margin-top: 6px;
-
+  color: white;
+  padding-left: 10px;
+  margin-top: 6px;
 }
 
-.ratings>span {
-    margin-right: 6px;
-    position: relative;
-    bottom: 2px;
+.ratings > span {
+  margin-right: 6px;
+  position: relative;
+  bottom: 2px;
 }
 
 .name {
-    color: white;
-    padding-left: 10px;
-    margin-top: 6px;
-    margin-bottom: 2px;
-    overflow-wrap: break-word;
-    width: 200px;
+  color: white;
+  padding-left: 10px;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  overflow-wrap: break-word;
+  width: 200px;
 }
 
 .nameLong {
-    color: white;
-    padding-left: 10px;
-    margin-top: 6px;
-    margin-bottom: 2px;
-    overflow-wrap: break-word;
-    /* width: 200px; */
+  color: white;
+  padding-left: 10px;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  overflow-wrap: break-word;
+  /* width: 200px; */
 
-
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 120px;
-    height: 1.2em;
-    white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 120px;
+  height: 1.2em;
+  white-space: nowrap;
 }
 
 .longName {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 span {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .addWatchlistButton {
-    width: 210px;
-    border: none;
-    height: 40px;
-    margin-top: 10px;
-    /* color: rgb(66, 103, 178); */
-    color: #5799ef;
-    font-weight: 700;
-    font-size: 14px;
-    padding-bottom: 4px;
-    background-color: rgb(30, 30, 30);
-    /* background-color: #424242; */
+  width: 210px;
+  border: none;
+  height: 40px;
+  margin-top: 10px;
+  color: #5799ef;
+  font-weight: 700;
+  font-size: 14px;
+  padding-bottom: 4px;
+  background-color: rgb(30, 30, 30);
 }
 
 .plusWatchlist {
-    font-weight: 300;
-    font-size: 28px;
-    position: relative;
-    top: 4px;
-    margin-right: 6px;
-
+  font-weight: 300;
+  font-size: 28px;
+  position: relative;
+  top: 4px;
+  margin-right: 6px;
 }
 
-
 .addWatchlistButton:hover {
-    background-color: #303030;
-    transition: 0.4s;
-    cursor: pointer;
-
+  background-color: #303030;
+  transition: 0.4s;
+  cursor: pointer;
 }
 
 .topPicksTitle {
-    color: white;
-    width: 100%;
-    padding-left: 40px;
-    margin-top: 180px;
-
+  color: white;
+  width: 100%;
+  padding-left: 40px;
+  margin-top: 180px;
 }
 
 h4 {
-    color: white;
-    width: 100%;
-    padding-left: 40px;
-    font-size: 180%;
+  color: white;
+  width: 100%;
+  padding-left: 40px;
+  font-size: 180%;
 }
 
 .top50tittle {
-    color: white;
-    width: 100%;
-    padding-left: 40px;
-    font-size: 200%;
-    margin-top: 90px;
-    text-align: center;
-
+  color: white;
+  width: 100%;
+  padding-left: 40px;
+  font-size: 200%;
+  margin-top: 90px;
+  text-align: center;
 }
 
 .ImageCarouselContainer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    /* padding-right: 10%;
-    padding-left: 10%; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-
-/* a {
-    color: white;
-} */

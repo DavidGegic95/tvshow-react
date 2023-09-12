@@ -1,23 +1,16 @@
-import "./span.css"
-
-
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const Span = () => {
-    const [buttonText, setButtonText] = useState("+")
-    const onClick1 = () => {
-        // setIsClicked(prev => !prev)
-        // setSavedMovies([...savedMovies, show])
+  const [buttonText, setButtonText] = useState("+");
+  const onClick1 = () => {
+    setButtonText("-");
+  };
 
-        // if (!isClicked) {
-        setButtonText("-")
-        // } else { setButtonText("+") }
+  return (
+    <span onClick={() => onClick1} className="plusWatchlist">
+      {buttonText}
+    </span>
+  );
+};
 
-    }
-
-    return (
-        <span onClick={() => onClick1} className="plusWatchlist">{buttonText}</span>
-    )
-}
-
-export default Span
+export default Span;

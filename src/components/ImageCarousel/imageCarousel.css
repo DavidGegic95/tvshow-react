@@ -1,12 +1,12 @@
 .imageCarousel {
-    width: 360px;
-    height: 540px;
-    object-fit: cover;
-    box-sizing: border-box;
-    cursor: pointer;
+  width: 360px;
+  height: 540px;
+  object-fit: cover;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .imageCarousel:hover {
-    opacity: 0.8;
-    transition: 0.25s;
+  opacity: 0.8;
+  transition: 0.25s;
 }

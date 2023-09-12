@@ -1,154 +1,127 @@
 .watchlistPage {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #C2C2C2;
-
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #c2c2c2;
 }
-
 
 .viewFlex,
 .viewGrid {
-    min-height: 90vh;
-    width: 58%;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    border-radius: 6px;
-    padding-top: 4vh;
-    padding-left: 4vh;
+  min-height: 90vh;
+  width: 58%;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-radius: 6px;
+  padding-top: 4vh;
+  padding-left: 4vh;
 }
 
 .viewFlex {
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 12vh;
-    row-gap: 2vh;
-    padding-bottom: 4vh;
-
-
-
-
-
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 12vh;
+  row-gap: 2vh;
+  padding-bottom: 4vh;
 }
 
 .viewGrid {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    column-gap: 10px;
-    margin-top: 12vh;
-    column-gap: 4%;
-    padding-bottom: 10vh;
-    row-gap: 10vh;
-
-
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  margin-top: 12vh;
+  column-gap: 4%;
+  padding-bottom: 10vh;
+  row-gap: 10vh;
 }
 
 .displayNone {
-    display: none;
+  display: none;
 }
 
-
-
 .watchlistMovieCard {
-    width: 800px;
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
+  width: 800px;
+  display: flex;
+  align-items: center;
 }
 
 .movieCardImg {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .movieCardImg:hover {
-    opacity: 0.85;
-    transition: 0.25s;
+  opacity: 0.85;
+  transition: 0.25s;
 }
 
-
-/* .placeStart {
-    padding-left: 2%;
-} */
-
 .movieCartinGrid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .summary {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 500px;
-    height: 1.2em;
-    white-space: nowrap;
-    align-self: flex-start;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 500px;
+  height: 1.2em;
+  white-space: nowrap;
+  align-self: flex-start;
 }
 
 .movieCardContentFlex {
-    height: 295px;
-    padding-left: 2%;
-    margin-bottom: 1vh;
-
+  height: 295px;
+  padding-left: 2%;
+  margin-bottom: 1vh;
 }
 
 .movieCardContentGrid {
-    /* margin-bottom: 2vh; */
-    padding-top: 1vh;
-    height: 8vh;
-    width: 100%;
-    align-items: center;
-
+  padding-top: 1vh;
+  height: 8vh;
+  width: 100%;
+  align-items: center;
 }
 
-
 .summaryDiv {
-    margin-top: 2vh;
+  margin-top: 2vh;
 }
 
 .gridFlexViewButton {
-    width: 60%;
-    position: absolute;
-    top: calc(20vh - 31px);
-    right: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1%;
+  width: 60%;
+  position: absolute;
+  top: calc(20vh - 31px);
+  right: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1%;
 }
 
 .viewButton {
-    border: none;
-    background-color: #C2C2C2;
-    cursor: pointer;
-    /* border: "1px solid #C2C2C2" */
+  border: none;
+  background-color: #c2c2c2;
+  cursor: pointer;
 }
 
 .movieName {
-    /* line-height: 120%;
-    font-size: 120%; */
-    margin-bottom: 1vh;
+  margin-bottom: 1vh;
 }
 
 .watchListtitle {
-    color: black;
-    text-align: center;
+  color: black;
+  text-align: center;
 }
 
 .starIconWatchist {
-    position: relative;
-    top: 5px;
+  position: relative;
+  top: 5px;
 }

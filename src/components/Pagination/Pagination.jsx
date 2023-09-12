@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import Typography from '@mui/material/Typography';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +20,6 @@ export default function PaginationControlled({ page, setPage }) {
 
     return (
         <Stack spacing={2}>
-            {/* <Typography>Page: {page}</Typography> */}
             <Pagination className='paginationBar' variant="outlined" color='primary' count={10} page={page} onChange={handleChange} />
         </Stack>
     );
