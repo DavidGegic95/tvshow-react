@@ -15,7 +15,7 @@ export default function SimpleAccordion({ cast, seasons }) {
   }
 
   return (
-    <div>
+    <div key={"accordion"}>
       <Accordion
         key="cast"
         sx={{ backgroundColor: "#C2C2C2", color: "#242424" }}
@@ -33,12 +33,12 @@ export default function SimpleAccordion({ cast, seasons }) {
           <Typography key="cast4">
             {max10Cast.map(({ person }) => {
               return (
-                <>
+                <li key={person.id}>
                   <span key={person.id} className="accordionText">
                     {person?.name}
                   </span>
                   <br key={person.id + 1000} />
-                </>
+                </li>
               );
             })}
           </Typography>

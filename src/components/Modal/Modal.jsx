@@ -3,7 +3,6 @@ import { useState, useContext } from "react";
 import { applicationContext } from "../../context";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import "./modal.css";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -55,12 +54,7 @@ export default function BasicModal({ show }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
-          ></Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <div id="modal-modal-description" sx={{ mt: 2 }}>
             <div className="imageTextDivModal">
               <img className="imgModal" src={show?.image?.medium} alt="" />
               <div className="tittleRatingsGenreModalDiv">
@@ -94,7 +88,7 @@ export default function BasicModal({ show }) {
                 {moreInfo ? "less info" : "more info"}
               </button>
             </div>
-          </Typography>
+          </div>
         </Box>
       </Modal>
     </div>

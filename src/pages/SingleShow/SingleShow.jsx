@@ -113,7 +113,7 @@ function SingleShow({
             dangerouslySetInnerHTML={{ __html: `${singleMovie?.summary}` }}
           />
 
-          <Accordion cast={cast} seasons={seasons}></Accordion>
+          <Accordion cast={cast} seasons={seasons}/>
           <button
             className="singleShowWatchlistButton"
             onClick={() => addToWatchlist()}
