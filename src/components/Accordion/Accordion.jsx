@@ -60,13 +60,13 @@ export default function SimpleAccordion({ cast, seasons }) {
           <Typography key="sesaon3">
             {seasons.map((season) => {
               return season?.premiereDate && season?.endDate ? (
-                <>
+                <li key={season?.premiereDate}>
                   <span
                     className="accordionText"
                     key={season?.premiereDate}
                   >{`${season?.premiereDate} - ${season?.endDate}`}</span>
                   <br key={season?.premiereDate + 1000} />
-                </>
+                </li>
               ) : null;
             })}
           </Typography>
